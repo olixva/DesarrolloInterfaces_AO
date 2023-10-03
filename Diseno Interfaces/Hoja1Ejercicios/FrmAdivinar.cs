@@ -17,7 +17,7 @@
                 if (n == nAleatorio)
                 {
                     lblMensaje.ForeColor = Color.Green;
-                    lblMensaje.Text = "CORRECTO :)";
+                    lblMensaje.Text = "         CORRECTO :)";
                     lblMensaje.Visible = true;
                     lblInfo.Visible = false;
                 }

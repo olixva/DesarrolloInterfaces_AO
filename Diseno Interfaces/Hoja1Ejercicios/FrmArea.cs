@@ -17,12 +17,15 @@ namespace Hoja1Ejercicios
                     txtAltura.Text = "";
                     lblError.Visible = false;
 
-                    lblResultado.Text = (FrmMenu.n1s * FrmMenu.n2s).ToString();
-                    lblResultado.Visible = true;
+                    lblResArea.Text = (FrmMenu.n1s * FrmMenu.n2s).ToString();
+                    lblResArea.Visible = true;
+
+                    lblResPerimetro.Text = ((FrmMenu.n1s + FrmMenu.n2s) * 2).ToString();
+                    lblResPerimetro.Visible = true;
                 }
                 else
                 {
-                    lblResultado.Visible = false;
+                    lblResArea.Visible = false;
                     lblError.Visible = true;
                 }
             }
@@ -34,12 +37,15 @@ namespace Hoja1Ejercicios
                     txtAltura.Text = "";
                     lblError.Visible = false;
 
-                    lblResultado.Text = ((FrmMenu.n1s * FrmMenu.n2s) / 2).ToString();
-                    lblResultado.Visible = true;
+                    lblResArea.Text = ((FrmMenu.n1s * FrmMenu.n2s) / 2).ToString();
+                    lblResArea.Visible = true;
+
+                    lblResPerimetro.Text = "A saber";
+                    lblResPerimetro.Visible = true;
                 }
                 else
                 {
-                    lblResultado.Visible = false;
+                    lblResArea.Visible = false;
                     lblError.Visible = true;
                 }
             }

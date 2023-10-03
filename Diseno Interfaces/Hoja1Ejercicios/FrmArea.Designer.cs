@@ -39,8 +39,11 @@
             lblBase = new Label();
             lblAltura = new Label();
             lblError = new Label();
-            lblResultado = new Label();
+            lblResArea = new Label();
             imgVolver = new PictureBox();
+            lblArea = new Label();
+            lblPerimetro = new Label();
+            lblResPerimetro = new Label();
             grpBoxSelec.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgVolver).BeginInit();
             SuspendLayout();
@@ -147,17 +150,17 @@
             lblError.Text = "ERROR";
             lblError.Visible = false;
             // 
-            // lblResultado
+            // lblResArea
             // 
-            lblResultado.AutoSize = true;
-            lblResultado.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            lblResultado.ForeColor = Color.SpringGreen;
-            lblResultado.Location = new Point(203, 316);
-            lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(45, 60);
-            lblResultado.TabIndex = 9;
-            lblResultado.Text = "x";
-            lblResultado.Visible = false;
+            lblResArea.AutoSize = true;
+            lblResArea.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lblResArea.ForeColor = Color.SpringGreen;
+            lblResArea.Location = new Point(142, 331);
+            lblResArea.Name = "lblResArea";
+            lblResArea.Size = new Size(35, 45);
+            lblResArea.TabIndex = 9;
+            lblResArea.Text = "x";
+            lblResArea.Visible = false;
             // 
             // imgVolver
             // 
@@ -170,13 +173,46 @@
             imgVolver.TabStop = false;
             imgVolver.Click += imgVolver_Click;
             // 
+            // lblArea
+            // 
+            lblArea.AutoSize = true;
+            lblArea.Location = new Point(75, 341);
+            lblArea.Name = "lblArea";
+            lblArea.Size = new Size(61, 28);
+            lblArea.TabIndex = 18;
+            lblArea.Text = "Area: ";
+            // 
+            // lblPerimetro
+            // 
+            lblPerimetro.AutoSize = true;
+            lblPerimetro.Location = new Point(75, 394);
+            lblPerimetro.Name = "lblPerimetro";
+            lblPerimetro.Size = new Size(106, 28);
+            lblPerimetro.TabIndex = 20;
+            lblPerimetro.Text = "Perimetro: ";
+            // 
+            // lblResPerimetro
+            // 
+            lblResPerimetro.AutoSize = true;
+            lblResPerimetro.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lblResPerimetro.ForeColor = Color.SpringGreen;
+            lblResPerimetro.Location = new Point(187, 381);
+            lblResPerimetro.Name = "lblResPerimetro";
+            lblResPerimetro.Size = new Size(35, 45);
+            lblResPerimetro.TabIndex = 19;
+            lblResPerimetro.Text = "x";
+            lblResPerimetro.Visible = false;
+            // 
             // FrmArea
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblPerimetro);
+            Controls.Add(lblResPerimetro);
+            Controls.Add(lblArea);
             Controls.Add(imgVolver);
-            Controls.Add(lblResultado);
+            Controls.Add(lblResArea);
             Controls.Add(lblError);
             Controls.Add(lblAltura);
             Controls.Add(lblBase);
@@ -202,7 +238,10 @@
         private Label lblAltura;
         private Label lblError;
         private Button btnCalcular;
-        private Label lblResultado;
+        private Label lblResArea;
         private PictureBox imgVolver;
+        private Label lblArea;
+        private Label lblPerimetro;
+        private Label lblResPerimetro;
     }
 }
