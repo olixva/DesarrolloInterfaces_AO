@@ -17,7 +17,7 @@
                 lblResFibo.Text = (CalcularFibonacci(n)).ToString();
                 lblResFibo.Visible = true;
 
-                if (n > 31)
+                if (n > 14)
                 {
                     lblResFac.Text = "Demasiado grande";
                     lblResFac.Visible = true;

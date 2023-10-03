@@ -56,6 +56,20 @@ namespace Hoja1Ejercicios
                     lblError.Visible = true;
                     break;
 
+                case "4":
+                case "Adivinar":
+                    lblError.Visible = false;
+
+                    FrmAdivinar frmAdv = new FrmAdivinar();
+                    frmAdv.Show();
+                    break;
+
+                case "5":
+                case "Salir":
+                    lblError.Visible = false;
+                    this.Hide();
+                    Application.Exit();
+                    break;
             }
         }
     }

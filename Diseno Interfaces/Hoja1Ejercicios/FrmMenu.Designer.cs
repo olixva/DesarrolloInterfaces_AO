@@ -32,6 +32,8 @@
             lblArea = new Label();
             lblFunciones = new Label();
             grbOpciones = new Panel();
+            lblAdivinar = new Label();
+            lblSalir = new Label();
             txtOpcion = new TextBox();
             btnAbrir = new Button();
             lblError = new Label();
@@ -67,13 +69,33 @@
             // 
             // grbOpciones
             // 
+            grbOpciones.Controls.Add(lblAdivinar);
+            grbOpciones.Controls.Add(lblSalir);
             grbOpciones.Controls.Add(lblCalculadora);
             grbOpciones.Controls.Add(lblArea);
             grbOpciones.Controls.Add(lblFunciones);
-            grbOpciones.Location = new Point(289, 74);
+            grbOpciones.Location = new Point(289, 25);
             grbOpciones.Name = "grbOpciones";
-            grbOpciones.Size = new Size(165, 179);
+            grbOpciones.Size = new Size(165, 228);
             grbOpciones.TabIndex = 4;
+            // 
+            // lblAdivinar
+            // 
+            lblAdivinar.AutoSize = true;
+            lblAdivinar.Location = new Point(17, 144);
+            lblAdivinar.Name = "lblAdivinar";
+            lblAdivinar.Size = new Size(105, 28);
+            lblAdivinar.TabIndex = 8;
+            lblAdivinar.Text = "4. Adivinar";
+            // 
+            // lblSalir
+            // 
+            lblSalir.AutoSize = true;
+            lblSalir.Location = new Point(19, 186);
+            lblSalir.Name = "lblSalir";
+            lblSalir.Size = new Size(70, 28);
+            lblSalir.TabIndex = 3;
+            lblSalir.Text = "5. Salir";
             // 
             // txtOpcion
             // 
@@ -130,5 +152,7 @@
         private TextBox txtOpcion;
         private Button btnAbrir;
         private Label lblError;
+        private Label lblSalir;
+        private Label lblAdivinar;
     }
 }
