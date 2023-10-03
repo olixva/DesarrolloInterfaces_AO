@@ -42,7 +42,7 @@
                 else
                 {
                     lblVidas.Text = "0";
-                    lblMensaje.Text = "Has perdido";
+                    lblMensaje.Text = "         Has perdido";
 
                     txtNum.Visible = false;
                     lblInfo.Visible = false;

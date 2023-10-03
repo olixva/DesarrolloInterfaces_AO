@@ -26,6 +26,7 @@ namespace Hoja1Ejercicios
                 else
                 {
                     lblResArea.Visible = false;
+                    lblResPerimetro.Visible = false;
                     lblError.Visible = true;
                 }
             }
@@ -46,6 +47,7 @@ namespace Hoja1Ejercicios
                 else
                 {
                     lblResArea.Visible = false;
+                    lblResPerimetro.Visible = false;
                     lblError.Visible = true;
                 }
             }
