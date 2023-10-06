@@ -58,8 +58,8 @@ namespace hoja2EjerciciosC_
                 media += n;
             }
             media /= 10;
-            lblMayor.Text = $"El numero mayor es {numeros[9]}";
-            lblMenor.Text = $"El numero menor es {numeros[0]}";
+            lblMayor.Text = $"El numero mayor es: {numeros[9]}";
+            lblMenor.Text = $"El numero menor es: {numeros[0]}";
             lblMedia.Text = $"La media es {media}";
             lblMayor.Visible = true;
             lblMenor.Visible = true;
@@ -80,7 +80,7 @@ namespace hoja2EjerciciosC_
                         i++;
                     }
                 }
-                lblRepite.Text = $"El numero {buscar} se repite {i} veces";
+                lblRepite.Text = $"El numero {buscar} se repite: {i} veces";
                 lblRepite.Visible = true;
             }
 

@@ -50,7 +50,7 @@
             this.listBoxNumeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNumeros.FormattingEnabled = true;
             this.listBoxNumeros.ItemHeight = 38;
-            this.listBoxNumeros.Location = new System.Drawing.Point(390, 97);
+            this.listBoxNumeros.Location = new System.Drawing.Point(412, 94);
             this.listBoxNumeros.Name = "listBoxNumeros";
             this.listBoxNumeros.Size = new System.Drawing.Size(177, 498);
             this.listBoxNumeros.TabIndex = 0;
@@ -137,7 +137,7 @@
             // 
             this.lblRepite.AutoSize = true;
             this.lblRepite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRepite.Location = new System.Drawing.Point(588, 308);
+            this.lblRepite.Location = new System.Drawing.Point(605, 311);
             this.lblRepite.Name = "lblRepite";
             this.lblRepite.Size = new System.Drawing.Size(395, 31);
             this.lblRepite.TabIndex = 9;
@@ -148,7 +148,7 @@
             // 
             this.lblMedia.AutoSize = true;
             this.lblMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedia.Location = new System.Drawing.Point(44, 371);
+            this.lblMedia.Location = new System.Drawing.Point(24, 376);
             this.lblMedia.Name = "lblMedia";
             this.lblMedia.Size = new System.Drawing.Size(202, 31);
             this.lblMedia.TabIndex = 10;
@@ -159,7 +159,7 @@
             // 
             this.lblMayor.AutoSize = true;
             this.lblMayor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMayor.Location = new System.Drawing.Point(40, 427);
+            this.lblMayor.Location = new System.Drawing.Point(24, 434);
             this.lblMayor.Name = "lblMayor";
             this.lblMayor.Size = new System.Drawing.Size(303, 31);
             this.lblMayor.TabIndex = 11;
@@ -170,7 +170,7 @@
             // 
             this.lblMenor.AutoSize = true;
             this.lblMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenor.Location = new System.Drawing.Point(39, 487);
+            this.lblMenor.Location = new System.Drawing.Point(24, 494);
             this.lblMenor.Name = "lblMenor";
             this.lblMenor.Size = new System.Drawing.Size(304, 31);
             this.lblMenor.TabIndex = 13;
@@ -182,7 +182,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1042, 648);
+            this.ClientSize = new System.Drawing.Size(1081, 648);
             this.Controls.Add(this.lblMenor);
             this.Controls.Add(this.lblMayor);
             this.Controls.Add(this.lblMedia);
@@ -197,7 +197,7 @@
             this.Controls.Add(this.btnOrdCacl);
             this.Controls.Add(this.listBoxNumeros);
             this.Name = "Ejercicio1";
-            this.Text = "Ejercicio 1";
+            this.Text = "Ejercicio 2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
