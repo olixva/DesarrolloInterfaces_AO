@@ -64,6 +64,8 @@ namespace hoja2EjerciciosC_
             lblMayor.Visible = true;
             lblMenor.Visible = true;
             lblMedia.Visible = true;
+
+            btnOrdCacl.Enabled = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

@@ -50,9 +50,9 @@
             this.listBoxNumeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNumeros.FormattingEnabled = true;
             this.listBoxNumeros.ItemHeight = 38;
-            this.listBoxNumeros.Location = new System.Drawing.Point(436, 96);
+            this.listBoxNumeros.Location = new System.Drawing.Point(390, 97);
             this.listBoxNumeros.Name = "listBoxNumeros";
-            this.listBoxNumeros.Size = new System.Drawing.Size(120, 498);
+            this.listBoxNumeros.Size = new System.Drawing.Size(177, 498);
             this.listBoxNumeros.TabIndex = 0;
             // 
             // btnOrdCacl
@@ -115,7 +115,7 @@
             // 
             this.lblEsPrimo.AutoSize = true;
             this.lblEsPrimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEsPrimo.Location = new System.Drawing.Point(118, 294);
+            this.lblEsPrimo.Location = new System.Drawing.Point(108, 294);
             this.lblEsPrimo.Name = "lblEsPrimo";
             this.lblEsPrimo.Size = new System.Drawing.Size(128, 31);
             this.lblEsPrimo.TabIndex = 7;
@@ -137,7 +137,7 @@
             // 
             this.lblRepite.AutoSize = true;
             this.lblRepite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRepite.Location = new System.Drawing.Point(583, 304);
+            this.lblRepite.Location = new System.Drawing.Point(588, 308);
             this.lblRepite.Name = "lblRepite";
             this.lblRepite.Size = new System.Drawing.Size(395, 31);
             this.lblRepite.TabIndex = 9;
