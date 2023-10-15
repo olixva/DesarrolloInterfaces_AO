@@ -11,6 +11,11 @@ namespace hoja3EjerciciosC_
         public Login()
         {
             InitializeComponent();
+            IniciarUsuarios();
+        }
+
+        private void IniciarUsuarios()
+        {
             for (int i = 0; i < usuarios.GetLength(0) - 1; i++)
             {
                 usuarios[i, 0] = $"user{i + 1}";
@@ -24,10 +29,10 @@ namespace hoja3EjerciciosC_
 
             for (int i = 0; i < usuarios.GetLength(0); i++)
             {
-                if (txtUser.Text == usuarios[i, 0])
+                if (txtUser.Text == usuarios[i, 0]) //Si el usuario es igual
                 {
                     usuarioValido = true;
-                    if (txtPass.Text == usuarios[i, 1])
+                    if (txtPass.Text == usuarios[i, 1]) //Si la contra es igual
                     {
                         lblIntentos.Visible = false;
                         errorLogin.SetError(txtPass, "");
@@ -36,7 +41,7 @@ namespace hoja3EjerciciosC_
                         this.Hide();
                         return;
                     }
-                    else
+                    else //Usuario existe pero contra mal
                     {
                         errorLogin.SetError(txtPass, "Contraseña Incorrecta");
                         errorLogin.SetError(txtUser, "");

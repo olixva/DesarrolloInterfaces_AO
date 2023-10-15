@@ -17,13 +17,22 @@ namespace hoja3EjerciciosC_
 
         public void cargarUsuarios()
         {
-            foreach (Altas.Alumno alumno in Altas.alumnos)
+            for (int i = 0; i < Altas.alumnosCreados; i++)
             {
+                Altas.Alumno alumno = Altas.alumnos[i];
+
                 lblUsuarios.Text += $"\n Id: {alumno.idAlumno} Nombre: {alumno.nombre} " +
                     $"Apellido: {alumno.apellido} Telefono: {alumno.telefono} " +
                     $"Email: {alumno.email} Curso: {alumno.curso}";
             }
         }
+
+        public void Reset()
+        {
+            lblUsuarios.Text = string.Empty;
+        }
+
+
 
     }
 }

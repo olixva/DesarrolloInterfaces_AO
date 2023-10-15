@@ -26,8 +26,10 @@ namespace hoja3EjerciciosC_
 
         private void lblListar_Click(object sender, EventArgs e)
         {
+            listar.Reset();
             listar.cargarUsuarios();
             listar.Show();
+
         }
 
         private void lblOrdenacion_Click(object sender, EventArgs e)
