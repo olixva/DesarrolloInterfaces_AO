@@ -31,62 +31,77 @@
             this.lblAltas = new System.Windows.Forms.Label();
             this.lblConsultas = new System.Windows.Forms.Label();
             this.lblListar = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblOrdenacion = new System.Windows.Forms.Label();
+            this.lblExit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAltas
             // 
             this.lblAltas.AutoSize = true;
-            this.lblAltas.Location = new System.Drawing.Point(318, 82);
+            this.lblAltas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAltas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAltas.Location = new System.Drawing.Point(284, 91);
             this.lblAltas.Name = "lblAltas";
-            this.lblAltas.Size = new System.Drawing.Size(70, 22);
+            this.lblAltas.Size = new System.Drawing.Size(113, 31);
             this.lblAltas.TabIndex = 0;
             this.lblAltas.Text = "1. Altas";
+            this.lblAltas.Click += new System.EventHandler(this.lblAltas_Click);
             // 
             // lblConsultas
             // 
             this.lblConsultas.AutoSize = true;
-            this.lblConsultas.Location = new System.Drawing.Point(318, 120);
+            this.lblConsultas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsultas.Location = new System.Drawing.Point(284, 154);
             this.lblConsultas.Name = "lblConsultas";
-            this.lblConsultas.Size = new System.Drawing.Size(110, 22);
+            this.lblConsultas.Size = new System.Drawing.Size(178, 31);
             this.lblConsultas.TabIndex = 1;
             this.lblConsultas.Text = "2. Consultas";
+            this.lblConsultas.Click += new System.EventHandler(this.lblConsultas_Click);
             // 
             // lblListar
             // 
             this.lblListar.AutoSize = true;
-            this.lblListar.Location = new System.Drawing.Point(318, 159);
+            this.lblListar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListar.Location = new System.Drawing.Point(284, 217);
             this.lblListar.Name = "lblListar";
-            this.lblListar.Size = new System.Drawing.Size(74, 22);
+            this.lblListar.Size = new System.Drawing.Size(120, 31);
             this.lblListar.TabIndex = 2;
             this.lblListar.Text = "3. Listar";
+            this.lblListar.Click += new System.EventHandler(this.lblListar_Click);
             // 
-            // label3
+            // lblOrdenacion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(318, 202);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 22);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "1. Altas";
+            this.lblOrdenacion.AutoSize = true;
+            this.lblOrdenacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblOrdenacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrdenacion.Location = new System.Drawing.Point(284, 278);
+            this.lblOrdenacion.Name = "lblOrdenacion";
+            this.lblOrdenacion.Size = new System.Drawing.Size(197, 31);
+            this.lblOrdenacion.TabIndex = 3;
+            this.lblOrdenacion.Text = "4. Ordenacion";
+            this.lblOrdenacion.Click += new System.EventHandler(this.lblOrdenacion_Click);
             // 
-            // label4
+            // lblExit
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(318, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 22);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "1. Altas";
+            this.lblExit.AutoSize = true;
+            this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExit.Location = new System.Drawing.Point(284, 338);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(96, 31);
+            this.lblExit.TabIndex = 4;
+            this.lblExit.Text = "5. Exit";
+            this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblExit);
+            this.Controls.Add(this.lblOrdenacion);
             this.Controls.Add(this.lblListar);
             this.Controls.Add(this.lblConsultas);
             this.Controls.Add(this.lblAltas);
@@ -102,7 +117,7 @@
         private System.Windows.Forms.Label lblAltas;
         private System.Windows.Forms.Label lblConsultas;
         private System.Windows.Forms.Label lblListar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblOrdenacion;
+        private System.Windows.Forms.Label lblExit;
     }
 }

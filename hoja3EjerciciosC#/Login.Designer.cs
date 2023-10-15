@@ -36,7 +36,7 @@
             this.lblIntroduzca = new System.Windows.Forms.Label();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.errorLogin = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblError = new System.Windows.Forms.Label();
+            this.lblIntentos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +46,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(138, 28);
             this.txtUser.TabIndex = 0;
+            this.txtUser.Text = "user1";
             // 
             // lblUser
             // 
@@ -71,6 +72,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(138, 28);
             this.txtPass.TabIndex = 2;
+            this.txtPass.Text = "pass1";
             // 
             // lblIntroduzca
             // 
@@ -97,24 +99,24 @@
             // 
             this.errorLogin.ContainerControl = this;
             // 
-            // lblError
+            // lblIntentos
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(171, 375);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(384, 29);
-            this.lblError.TabIndex = 6;
-            this.lblError.Text = "Usuario o contraseña incorrectos";
-            this.lblError.Visible = false;
+            this.lblIntentos.AutoSize = true;
+            this.lblIntentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntentos.ForeColor = System.Drawing.Color.Red;
+            this.lblIntentos.Location = new System.Drawing.Point(228, 371);
+            this.lblIntentos.Name = "lblIntentos";
+            this.lblIntentos.Size = new System.Drawing.Size(384, 29);
+            this.lblIntentos.TabIndex = 6;
+            this.lblIntentos.Text = "Usuario o contraseña incorrectos";
+            this.lblIntentos.Visible = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.lblIntentos);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.lblIntroduzca);
             this.Controls.Add(this.lblPass);
@@ -138,7 +140,7 @@
         private System.Windows.Forms.Label lblIntroduzca;
         private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.ErrorProvider errorLogin;
-        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblIntentos;
     }
 }
 

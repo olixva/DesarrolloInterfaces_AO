@@ -16,5 +16,10 @@ namespace hoja3EjerciciosC_
         {
             InitializeComponent();
         }
+
+        private void imgVolver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
