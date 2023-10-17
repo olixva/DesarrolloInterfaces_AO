@@ -115,35 +115,35 @@
             this.txtNombre.Location = new System.Drawing.Point(362, 111);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(156, 28);
-            this.txtNombre.TabIndex = 6;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(362, 157);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(156, 28);
-            this.txtApellido.TabIndex = 7;
+            this.txtApellido.TabIndex = 2;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(362, 208);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(156, 28);
-            this.txtTelefono.TabIndex = 8;
+            this.txtTelefono.TabIndex = 3;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(362, 254);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(282, 28);
-            this.txtEmail.TabIndex = 9;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtCurso
             // 
             this.txtCurso.Location = new System.Drawing.Point(362, 303);
             this.txtCurso.Name = "txtCurso";
             this.txtCurso.Size = new System.Drawing.Size(112, 28);
-            this.txtCurso.TabIndex = 10;
+            this.txtCurso.TabIndex = 5;
             // 
             // btnCrear
             // 
