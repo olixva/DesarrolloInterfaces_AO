@@ -16,7 +16,7 @@ namespace hoja3EjerciciosC_
 
         private void IniciarUsuarios()
         {
-            for (int i = 0; i < usuarios.GetLength(0) - 1; i++)
+            for (int i = 0; i < usuarios.GetLength(0); i++)
             {
                 usuarios[i, 0] = $"user{i + 1}";
                 usuarios[i, 1] = $"pass{i + 1}";
