@@ -118,6 +118,7 @@
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
             this.pedidosToolStripMenuItem.Text = "&Pedidos";
+            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -381,7 +382,7 @@
             this.ListarBox.Controls.Add(this.cmboBoxCategoriaListar);
             this.ListarBox.Controls.Add(this.txtBoxListar);
             this.ListarBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListarBox.Location = new System.Drawing.Point(77, 71);
+            this.ListarBox.Location = new System.Drawing.Point(83, 71);
             this.ListarBox.Name = "ListarBox";
             this.ListarBox.Size = new System.Drawing.Size(645, 560);
             this.ListarBox.TabIndex = 2;
@@ -447,6 +448,7 @@
             this.PedidosBox.TabIndex = 3;
             this.PedidosBox.TabStop = false;
             this.PedidosBox.Text = "Pedidos";
+            this.PedidosBox.Visible = false;
             // 
             // lblIDpedido
             // 
@@ -459,7 +461,6 @@
             // 
             // txtIDPedido
             // 
-            this.txtIDPedido.Enabled = false;
             this.txtIDPedido.Location = new System.Drawing.Point(301, 159);
             this.txtIDPedido.Name = "txtIDPedido";
             this.txtIDPedido.Size = new System.Drawing.Size(222, 32);

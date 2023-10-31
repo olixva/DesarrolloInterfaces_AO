@@ -15,6 +15,7 @@ namespace Ejercicio1Clases
         private void altasToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             ListarBox.Visible = false;
+            PedidosBox.Visible = false;
 
             AltasCosultasBox.Text = "Altas";
             btnConsultar.Visible = false;
@@ -107,6 +108,7 @@ namespace Ejercicio1Clases
         private void porNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Visible = false;
+            PedidosBox.Visible = false;
 
             AltasCosultasBox.Text = "Consultas";
             btnCrear.Visible = false;
@@ -127,6 +129,7 @@ namespace Ejercicio1Clases
         private void porCodigoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Visible = false;
+            PedidosBox.Visible = false;
 
             AltasCosultasBox.Text = "Consultas";
             btnCrear.Visible = false;
@@ -210,16 +213,12 @@ namespace Ejercicio1Clases
             limpiarCampos();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void minimosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Text = "Listar minimos";
             ListarBox.Visible = true;
             AltasCosultasBox.Visible = false;
+            PedidosBox.Visible = false;
 
             txtBoxListar.Text = "";
             cmboBoxCategoria.SelectedIndex = -1;
@@ -232,6 +231,7 @@ namespace Ejercicio1Clases
             ListarBox.Text = "Listar por categoria";
             ListarBox.Visible = true;
             AltasCosultasBox.Visible = false;
+            PedidosBox.Visible = false;
 
             txtBoxListar.Text = "";
             cmboBoxCategoria.SelectedIndex = -1;
@@ -244,6 +244,7 @@ namespace Ejercicio1Clases
             ListarBox.Text = "Listar todos";
             ListarBox.Visible = true;
             AltasCosultasBox.Visible = false;
+            PedidosBox.Visible = false;
 
             txtBoxListar.Text = "";
             cmboBoxCategoria.SelectedIndex = -1;
@@ -313,9 +314,22 @@ namespace Ejercicio1Clases
             }
         }
 
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Antonio Oliva Carceles 2DAM");
+        }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarBox.Visible = false;
+            AltasCosultasBox.Visible = false;
+
+            PedidosBox.Visible = true;
         }
     }
 }
