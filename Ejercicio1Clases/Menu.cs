@@ -234,7 +234,7 @@ namespace Ejercicio1Clases
             PedidosBox.Visible = false;
 
             txtBoxListar.Text = "";
-            cmboBoxCategoria.SelectedIndex = -1;
+            cmboBoxCategoriaListar.SelectedIndex = -1;
             lblCategoriaListar.Visible = true;
             cmboBoxCategoriaListar.Visible = true;
         }
@@ -329,7 +329,23 @@ namespace Ejercicio1Clases
             ListarBox.Visible = false;
             AltasCosultasBox.Visible = false;
 
+            txtCantidad.Text = "";
+            txtIDPedido.Text = "";
             PedidosBox.Visible = true;
+        }
+
+        private void btnPedir_Click(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(txtIDPedido.Text, out int id) && Int32.TryParse(txtCantidad.Text, out int cantidad))
+            {
+                foreach (Articulo item in articulos)
+                {
+                    if (item.CodigoArticulo == id)
+                    {
+                        MessageBox.Show(item.ActualizarExistencias(cantidad));
+                    }
+                }
+            }
         }
     }
 }
