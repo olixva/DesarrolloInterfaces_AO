@@ -217,6 +217,7 @@ namespace Ejercicio1Clases
 
         private void minimosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListarBox.Text = "Listar minimos";
             ListarBox.Visible = true;
             AltasCosultasBox.Visible = false;
 
@@ -228,6 +229,7 @@ namespace Ejercicio1Clases
 
         private void porCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListarBox.Text = "Listar por categoria";
             ListarBox.Visible = true;
             AltasCosultasBox.Visible = false;
 
@@ -237,21 +239,83 @@ namespace Ejercicio1Clases
             cmboBoxCategoriaListar.Visible = true;
         }
 
+        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarBox.Text = "Listar todos";
+            ListarBox.Visible = true;
+            AltasCosultasBox.Visible = false;
+
+            txtBoxListar.Text = "";
+            cmboBoxCategoria.SelectedIndex = -1;
+            lblCategoriaListar.Visible = false;
+            cmboBoxCategoriaListar.Visible = false;
+        }
+
         private void btnListar_Click(object sender, EventArgs e)
         {
             txtBoxListar.Text = "";
 
-            if (todosToolStripMenuItem.Enabled == true)
+            if (ListarBox.Text == "Listar todos")
             {
                 foreach (Articulo item in articulos)
                 {
                     txtBoxListar.Text += item.ToString() + "\n";
                 }
             }
+            else if (ListarBox.Text == "Listar minimos")
+            {
+                foreach (Articulo item in articulos)
+                {
+                    if (item.ExistenciasArticulo < 10)
+                    {
+                        txtBoxListar.Text += item.ToString() + "\n";
+                    }
+                }
+            }
             else
             {
+                foreach (Articulo item in articulos)
+                {
+                    switch (cmboBoxCategoriaListar.Text)
+                    {
+                        case "Informática":
+                            if (item.CategoriaArticulo == "Informática")
+                            {
+                                txtBoxListar.Text += item.ToString() + "\n";
+                            }
+                            break;
 
+                        case "Imagen":
+                            if (item.CategoriaArticulo == "Imagen")
+                            {
+                                txtBoxListar.Text += item.ToString() + "\n";
+                            }
+                            break;
+
+                        case "Telefonía":
+                            if (item.CategoriaArticulo == "Telefonía")
+                            {
+                                txtBoxListar.Text += item.ToString() + "\n";
+                            }
+                            break;
+
+                        case "Sonido":
+                            if (item.CategoriaArticulo == "Sonido")
+                            {
+                                txtBoxListar.Text += item.ToString() + "\n";
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
             }
+        }
+
+        private void autorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Antonio Oliva Carceles 2DAM");
         }
     }
 }

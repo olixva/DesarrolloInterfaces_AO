@@ -29,6 +29,8 @@ namespace Ejercicio1Clases
         public static int NArticulos { get => nArticulos; set => nArticulos = value; }
         public int CodigoArticulo { get => codigoArticulo; set => codigoArticulo = value; }
         public string NombreArticulo { get => nombreArticulo; set => nombreArticulo = value; }
+        public int ExistenciasArticulo { get => existenciasArticulo; set => existenciasArticulo = value; }
+        public string CategoriaArticulo { get => categoriaArticulo; set => categoriaArticulo = value; }
 
         public String ActualizarExistencias(int cantidadPedido)
         {
