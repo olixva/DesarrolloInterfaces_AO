@@ -91,7 +91,7 @@
             this.acercaDeToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1686, 36);
+            this.menuStrip.Size = new System.Drawing.Size(847, 36);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -382,7 +382,7 @@
             this.ListarBox.Controls.Add(this.cmboBoxCategoriaListar);
             this.ListarBox.Controls.Add(this.txtBoxListar);
             this.ListarBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListarBox.Location = new System.Drawing.Point(83, 71);
+            this.ListarBox.Location = new System.Drawing.Point(86, 56);
             this.ListarBox.Name = "ListarBox";
             this.ListarBox.Size = new System.Drawing.Size(645, 560);
             this.ListarBox.TabIndex = 2;
@@ -417,7 +417,7 @@
             // lblCategoriaListar
             // 
             this.lblCategoriaListar.AutoSize = true;
-            this.lblCategoriaListar.Location = new System.Drawing.Point(183, 76);
+            this.lblCategoriaListar.Location = new System.Drawing.Point(162, 76);
             this.lblCategoriaListar.Name = "lblCategoriaListar";
             this.lblCategoriaListar.Size = new System.Drawing.Size(122, 26);
             this.lblCategoriaListar.TabIndex = 2;
@@ -442,7 +442,7 @@
             this.PedidosBox.Controls.Add(this.lblIDpedido);
             this.PedidosBox.Controls.Add(this.txtIDPedido);
             this.PedidosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PedidosBox.Location = new System.Drawing.Point(982, 118);
+            this.PedidosBox.Location = new System.Drawing.Point(64, 71);
             this.PedidosBox.Name = "PedidosBox";
             this.PedidosBox.Size = new System.Drawing.Size(580, 525);
             this.PedidosBox.TabIndex = 3;
@@ -491,12 +491,13 @@
             this.btnPedir.TabIndex = 14;
             this.btnPedir.Text = "Pedir";
             this.btnPedir.UseVisualStyleBackColor = true;
+            this.btnPedir.Click += new System.EventHandler(this.btnPedir_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1686, 689);
+            this.ClientSize = new System.Drawing.Size(847, 689);
             this.Controls.Add(this.PedidosBox);
             this.Controls.Add(this.ListarBox);
             this.Controls.Add(this.AltasCosultasBox);
