@@ -45,26 +45,32 @@
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AltasCosultasBox = new System.Windows.Forms.GroupBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.grpBoxRadio = new System.Windows.Forms.GroupBox();
+            this.radioCodigo = new System.Windows.Forms.RadioButton();
+            this.radioNombre = new System.Windows.Forms.RadioButton();
             this.cmboBoxCategoria = new System.Windows.Forms.ComboBox();
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnCrear = new System.Windows.Forms.Button();
             this.lblExistencias = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.lblArticulo = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtExistencias = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.radioNombre = new System.Windows.Forms.RadioButton();
-            this.grpBoxRadio = new System.Windows.Forms.GroupBox();
-            this.radioCodigo = new System.Windows.Forms.RadioButton();
-            this.btnConsultar = new System.Windows.Forms.Button();
+            this.ListarBox = new System.Windows.Forms.GroupBox();
+            this.txtBoxListar = new System.Windows.Forms.RichTextBox();
+            this.cmboBoxCategoriaListar = new System.Windows.Forms.ComboBox();
+            this.lblCategoriaListar = new System.Windows.Forms.Label();
+            this.btnListar = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.AltasCosultasBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.grpBoxRadio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
+            this.ListarBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -78,7 +84,7 @@
             this.acercaDeToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(902, 36);
+            this.menuStrip.Size = new System.Drawing.Size(1686, 36);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -90,32 +96,33 @@
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
             this.articulosStripMenuItem.Name = "articulosStripMenuItem";
-            this.articulosStripMenuItem.Size = new System.Drawing.Size(107, 32);
+            this.articulosStripMenuItem.Size = new System.Drawing.Size(107, 34);
             this.articulosStripMenuItem.Text = "&Articulos";
             // 
             // altasToolStripMenuItem
             // 
             this.altasToolStripMenuItem.Name = "altasToolStripMenuItem";
-            this.altasToolStripMenuItem.Size = new System.Drawing.Size(191, 36);
+            this.altasToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
             this.altasToolStripMenuItem.Text = "&Altas";
             this.altasToolStripMenuItem.Click += new System.EventHandler(this.altasToolStripMenuItem_Click);
             // 
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(191, 36);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
             this.pedidosToolStripMenuItem.Text = "&Pedidos";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(293, 6);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(191, 36);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
             this.salirToolStripMenuItem.Text = "&Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -123,20 +130,20 @@
             this.porNombreToolStripMenuItem,
             this.porCodigoToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(114, 32);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(114, 34);
             this.consultasToolStripMenuItem.Text = "&Consultas";
             // 
             // porNombreToolStripMenuItem
             // 
             this.porNombreToolStripMenuItem.Name = "porNombreToolStripMenuItem";
-            this.porNombreToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
+            this.porNombreToolStripMenuItem.Size = new System.Drawing.Size(229, 36);
             this.porNombreToolStripMenuItem.Text = "Por &Nombre";
             this.porNombreToolStripMenuItem.Click += new System.EventHandler(this.porNombreToolStripMenuItem_Click);
             // 
             // porCodigoToolStripMenuItem
             // 
             this.porCodigoToolStripMenuItem.Name = "porCodigoToolStripMenuItem";
-            this.porCodigoToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
+            this.porCodigoToolStripMenuItem.Size = new System.Drawing.Size(229, 36);
             this.porCodigoToolStripMenuItem.Text = "Por &Codigo";
             this.porCodigoToolStripMenuItem.Click += new System.EventHandler(this.porCodigoToolStripMenuItem_Click);
             // 
@@ -147,25 +154,27 @@
             this.porCategoriaToolStripMenuItem,
             this.todosToolStripMenuItem});
             this.lisToolStripMenuItem.Name = "lisToolStripMenuItem";
-            this.lisToolStripMenuItem.Size = new System.Drawing.Size(101, 32);
+            this.lisToolStripMenuItem.Size = new System.Drawing.Size(101, 34);
             this.lisToolStripMenuItem.Text = "&Listados";
             // 
             // minimosToolStripMenuItem
             // 
             this.minimosToolStripMenuItem.Name = "minimosToolStripMenuItem";
-            this.minimosToolStripMenuItem.Size = new System.Drawing.Size(241, 36);
+            this.minimosToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
             this.minimosToolStripMenuItem.Text = "&Minimos";
+            this.minimosToolStripMenuItem.Click += new System.EventHandler(this.minimosToolStripMenuItem_Click);
             // 
             // porCategoriaToolStripMenuItem
             // 
             this.porCategoriaToolStripMenuItem.Name = "porCategoriaToolStripMenuItem";
-            this.porCategoriaToolStripMenuItem.Size = new System.Drawing.Size(241, 36);
+            this.porCategoriaToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
             this.porCategoriaToolStripMenuItem.Text = "Por &Categoria";
+            this.porCategoriaToolStripMenuItem.Click += new System.EventHandler(this.porCategoriaToolStripMenuItem_Click);
             // 
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(241, 36);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(296, 36);
             this.todosToolStripMenuItem.Text = "&Todos";
             // 
             // acercaDeToolStripMenuItem
@@ -173,7 +182,7 @@
             this.acercaDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.autorToolStripMenuItem});
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(115, 32);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(115, 34);
             this.acercaDeToolStripMenuItem.Text = "Acerca &de";
             // 
             // autorToolStripMenuItem
@@ -192,7 +201,7 @@
             this.AltasCosultasBox.Controls.Add(this.btnCrear);
             this.AltasCosultasBox.Controls.Add(this.lblExistencias);
             this.AltasCosultasBox.Controls.Add(this.lblPrecio);
-            this.AltasCosultasBox.Controls.Add(this.lblArticulo);
+            this.AltasCosultasBox.Controls.Add(this.lblCategoria);
             this.AltasCosultasBox.Controls.Add(this.lblNombre);
             this.AltasCosultasBox.Controls.Add(this.txtExistencias);
             this.AltasCosultasBox.Controls.Add(this.txtPrecio);
@@ -206,8 +215,55 @@
             this.AltasCosultasBox.Text = "Altas";
             this.AltasCosultasBox.Visible = false;
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(212, 471);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(154, 39);
+            this.btnConsultar.TabIndex = 13;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // grpBoxRadio
+            // 
+            this.grpBoxRadio.Controls.Add(this.radioCodigo);
+            this.grpBoxRadio.Controls.Add(this.radioNombre);
+            this.grpBoxRadio.Location = new System.Drawing.Point(492, 395);
+            this.grpBoxRadio.Name = "grpBoxRadio";
+            this.grpBoxRadio.Size = new System.Drawing.Size(207, 105);
+            this.grpBoxRadio.TabIndex = 12;
+            this.grpBoxRadio.TabStop = false;
+            this.grpBoxRadio.Text = "Seleccione:";
+            this.grpBoxRadio.Visible = false;
+            // 
+            // radioCodigo
+            // 
+            this.radioCodigo.AutoSize = true;
+            this.radioCodigo.Location = new System.Drawing.Point(6, 64);
+            this.radioCodigo.Name = "radioCodigo";
+            this.radioCodigo.Size = new System.Drawing.Size(156, 30);
+            this.radioCodigo.TabIndex = 12;
+            this.radioCodigo.TabStop = true;
+            this.radioCodigo.Text = "Por Codigo";
+            this.radioCodigo.UseVisualStyleBackColor = true;
+            this.radioCodigo.CheckedChanged += new System.EventHandler(this.radioCodigo_CheckedChanged);
+            // 
+            // radioNombre
+            // 
+            this.radioNombre.AutoSize = true;
+            this.radioNombre.Location = new System.Drawing.Point(6, 31);
+            this.radioNombre.Name = "radioNombre";
+            this.radioNombre.Size = new System.Drawing.Size(165, 30);
+            this.radioNombre.TabIndex = 11;
+            this.radioNombre.TabStop = true;
+            this.radioNombre.Text = "Por Nombre";
+            this.radioNombre.UseVisualStyleBackColor = true;
+            this.radioNombre.CheckedChanged += new System.EventHandler(this.radioNombre_CheckedChanged);
+            // 
             // cmboBoxCategoria
             // 
+            this.cmboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboBoxCategoria.FormattingEnabled = true;
             this.cmboBoxCategoria.Items.AddRange(new object[] {
             "Informática",
@@ -266,14 +322,14 @@
             this.lblPrecio.TabIndex = 6;
             this.lblPrecio.Text = "Precio Articulo";
             // 
-            // lblArticulo
+            // lblCategoria
             // 
-            this.lblArticulo.AutoSize = true;
-            this.lblArticulo.Location = new System.Drawing.Point(90, 209);
-            this.lblArticulo.Name = "lblArticulo";
-            this.lblArticulo.Size = new System.Drawing.Size(203, 26);
-            this.lblArticulo.TabIndex = 5;
-            this.lblArticulo.Text = "Categoria Articulo";
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(90, 209);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(203, 26);
+            this.lblCategoria.TabIndex = 5;
+            this.lblCategoria.Text = "Categoria Articulo";
             // 
             // lblNombre
             // 
@@ -309,57 +365,69 @@
             // 
             this.error.ContainerControl = this;
             // 
-            // radioNombre
+            // ListarBox
             // 
-            this.radioNombre.AutoSize = true;
-            this.radioNombre.Location = new System.Drawing.Point(6, 31);
-            this.radioNombre.Name = "radioNombre";
-            this.radioNombre.Size = new System.Drawing.Size(165, 30);
-            this.radioNombre.TabIndex = 11;
-            this.radioNombre.TabStop = true;
-            this.radioNombre.Text = "Por Nombre";
-            this.radioNombre.UseVisualStyleBackColor = true;
-            this.radioNombre.CheckedChanged += new System.EventHandler(this.radioNombre_CheckedChanged);
+            this.ListarBox.Controls.Add(this.btnListar);
+            this.ListarBox.Controls.Add(this.lblCategoriaListar);
+            this.ListarBox.Controls.Add(this.cmboBoxCategoriaListar);
+            this.ListarBox.Controls.Add(this.txtBoxListar);
+            this.ListarBox.Location = new System.Drawing.Point(930, 81);
+            this.ListarBox.Name = "ListarBox";
+            this.ListarBox.Size = new System.Drawing.Size(645, 560);
+            this.ListarBox.TabIndex = 2;
+            this.ListarBox.TabStop = false;
+            this.ListarBox.Text = "Listar";
+            this.ListarBox.Visible = false;
             // 
-            // grpBoxRadio
+            // txtBoxListar
             // 
-            this.grpBoxRadio.Controls.Add(this.radioCodigo);
-            this.grpBoxRadio.Controls.Add(this.radioNombre);
-            this.grpBoxRadio.Location = new System.Drawing.Point(492, 395);
-            this.grpBoxRadio.Name = "grpBoxRadio";
-            this.grpBoxRadio.Size = new System.Drawing.Size(207, 105);
-            this.grpBoxRadio.TabIndex = 12;
-            this.grpBoxRadio.TabStop = false;
-            this.grpBoxRadio.Text = "Seleccione:";
-            this.grpBoxRadio.Visible = false;
+            this.txtBoxListar.Location = new System.Drawing.Point(41, 135);
+            this.txtBoxListar.Name = "txtBoxListar";
+            this.txtBoxListar.Size = new System.Drawing.Size(537, 257);
+            this.txtBoxListar.TabIndex = 0;
+            this.txtBoxListar.Text = "";
             // 
-            // radioCodigo
+            // cmboBoxCategoriaListar
             // 
-            this.radioCodigo.AutoSize = true;
-            this.radioCodigo.Location = new System.Drawing.Point(6, 64);
-            this.radioCodigo.Name = "radioCodigo";
-            this.radioCodigo.Size = new System.Drawing.Size(156, 30);
-            this.radioCodigo.TabIndex = 12;
-            this.radioCodigo.TabStop = true;
-            this.radioCodigo.Text = "Por Codigo";
-            this.radioCodigo.UseVisualStyleBackColor = true;
-            this.radioCodigo.CheckedChanged += new System.EventHandler(this.radioCodigo_CheckedChanged);
+            this.cmboBoxCategoriaListar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmboBoxCategoriaListar.FormattingEnabled = true;
+            this.cmboBoxCategoriaListar.Items.AddRange(new object[] {
+            "Informática",
+            "Imagen",
+            "Telefonía",
+            "Sonido"});
+            this.cmboBoxCategoriaListar.Location = new System.Drawing.Point(304, 73);
+            this.cmboBoxCategoriaListar.Name = "cmboBoxCategoriaListar";
+            this.cmboBoxCategoriaListar.Size = new System.Drawing.Size(152, 30);
+            this.cmboBoxCategoriaListar.TabIndex = 1;
+            this.cmboBoxCategoriaListar.Visible = false;
             // 
-            // btnConsultar
+            // lblCategoriaListar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(212, 471);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(154, 39);
-            this.btnConsultar.TabIndex = 13;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            this.lblCategoriaListar.AutoSize = true;
+            this.lblCategoriaListar.Location = new System.Drawing.Point(183, 76);
+            this.lblCategoriaListar.Name = "lblCategoriaListar";
+            this.lblCategoriaListar.Size = new System.Drawing.Size(93, 22);
+            this.lblCategoriaListar.TabIndex = 2;
+            this.lblCategoriaListar.Text = "Categoria:";
+            this.lblCategoriaListar.Visible = false;
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(249, 438);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(123, 39);
+            this.btnListar.TabIndex = 3;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 689);
+            this.ClientSize = new System.Drawing.Size(1686, 689);
+            this.Controls.Add(this.ListarBox);
             this.Controls.Add(this.AltasCosultasBox);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -369,9 +437,11 @@
             this.menuStrip.PerformLayout();
             this.AltasCosultasBox.ResumeLayout(false);
             this.AltasCosultasBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.grpBoxRadio.ResumeLayout(false);
             this.grpBoxRadio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
+            this.ListarBox.ResumeLayout(false);
+            this.ListarBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +470,7 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblExistencias;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.Label lblArticulo;
+        private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
@@ -411,6 +481,11 @@
         private System.Windows.Forms.GroupBox grpBoxRadio;
         private System.Windows.Forms.RadioButton radioCodigo;
         private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.GroupBox ListarBox;
+        private System.Windows.Forms.RichTextBox txtBoxListar;
+        private System.Windows.Forms.Label lblCategoriaListar;
+        private System.Windows.Forms.ComboBox cmboBoxCategoriaListar;
+        private System.Windows.Forms.Button btnListar;
     }
 }
 

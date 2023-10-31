@@ -14,6 +14,8 @@ namespace Ejercicio1Clases
 
         private void altasToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            ListarBox.Visible = false;
+
             AltasCosultasBox.Text = "Altas";
             btnConsultar.Visible = false;
             grpBoxRadio.Visible = false;
@@ -100,12 +102,12 @@ namespace Ejercicio1Clases
             error.SetError(cmboBoxCategoria, "");
             error.SetError(txtPrecio, "");
             error.SetError(txtExistencias, "");
-
-
         }
 
         private void porNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListarBox.Visible = false;
+
             AltasCosultasBox.Text = "Consultas";
             btnCrear.Visible = false;
             btnConsultar.Visible = true;
@@ -124,6 +126,8 @@ namespace Ejercicio1Clases
 
         private void porCodigoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListarBox.Visible = false;
+
             AltasCosultasBox.Text = "Consultas";
             btnCrear.Visible = false;
             btnConsultar.Visible = true;
@@ -143,12 +147,14 @@ namespace Ejercicio1Clases
         {
             if (radioCodigo.Checked)
             {
+                bool encontrado = false;
                 foreach (Articulo item in articulos)
                 {
                     if (Int32.TryParse(txtId.Text, out int codigo))
                     {
                         if (item.CodigoArticulo == codigo)
                         {
+                            encontrado = true;
                             MessageBox.Show(item.ToString());
                         }
                     }
@@ -157,15 +163,27 @@ namespace Ejercicio1Clases
                         error.SetError(txtId, "Formato invalido");
                     }
                 }
+                if (!encontrado)
+                {
+                    MessageBox.Show("No existe ningun usuario con los datos introducidos");
+                }
             }
             else
             {
+                bool encontrado = false;
+
                 foreach (Articulo item in articulos)
                 {
                     if (item.NombreArticulo == txtNombre.Text)
                     {
                         MessageBox.Show(item.ToString());
+                        encontrado = true;
                     }
+                }
+
+                if (!encontrado)
+                {
+                    MessageBox.Show("No existe ningun usuario con los datos introducidos");
                 }
             }
         }
@@ -177,6 +195,8 @@ namespace Ejercicio1Clases
             cmboBoxCategoria.Enabled = false;
             txtPrecio.Enabled = false;
             txtExistencias.Enabled = false;
+
+            limpiarCampos();
         }
 
         private void radioCodigo_CheckedChanged(object sender, EventArgs e)
@@ -186,6 +206,52 @@ namespace Ejercicio1Clases
             cmboBoxCategoria.Enabled = false;
             txtPrecio.Enabled = false;
             txtExistencias.Enabled = false;
+
+            limpiarCampos();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarBox.Visible = true;
+            AltasCosultasBox.Visible = false;
+
+            txtBoxListar.Text = "";
+            cmboBoxCategoria.SelectedIndex = -1;
+            lblCategoriaListar.Visible = false;
+            cmboBoxCategoriaListar.Visible = false;
+        }
+
+        private void porCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarBox.Visible = true;
+            AltasCosultasBox.Visible = false;
+
+            txtBoxListar.Text = "";
+            cmboBoxCategoria.SelectedIndex = -1;
+            lblCategoriaListar.Visible = true;
+            cmboBoxCategoriaListar.Visible = true;
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            txtBoxListar.Text = "";
+
+            if (todosToolStripMenuItem.Enabled == true)
+            {
+                foreach (Articulo item in articulos)
+                {
+                    txtBoxListar.Text += item.ToString() + "\n";
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }
