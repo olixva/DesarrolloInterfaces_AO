@@ -12,6 +12,7 @@ namespace Ejercicio1Clases
             InitializeComponent();
         }
 
+        //Altas
         private void altasToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             ListarBox.Visible = false;
@@ -91,20 +92,9 @@ namespace Ejercicio1Clases
 
         }
 
-        private void limpiarCampos()
-        {
-            txtId.Text = "";
-            txtNombre.Text = "";
-            txtPrecio.Text = "";
-            txtExistencias.Text = "";
-            cmboBoxCategoria.SelectedIndex = -1;
+        //Consultas
 
-            error.SetError(txtId, "");
-            error.SetError(cmboBoxCategoria, "");
-            error.SetError(txtPrecio, "");
-            error.SetError(txtExistencias, "");
-        }
-
+        //Consulta por nombre
         private void porNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Visible = false;
@@ -126,6 +116,7 @@ namespace Ejercicio1Clases
             AltasCosultasBox.Visible = true;
         }
 
+        //Consulta por codigo
         private void porCodigoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Visible = false;
@@ -148,7 +139,7 @@ namespace Ejercicio1Clases
         }
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (radioCodigo.Checked)
+            if (radioCodigo.Checked)//Consulta por codigo
             {
                 bool encontrado = false;
                 foreach (Articulo item in articulos)
@@ -168,10 +159,10 @@ namespace Ejercicio1Clases
                 }
                 if (!encontrado)
                 {
-                    MessageBox.Show("No existe ningun usuario con los datos introducidos");
+                    MessageBox.Show("No existe ningun producto con los datos introducidos");
                 }
             }
-            else
+            else //Consulta por nombre
             {
                 bool encontrado = false;
 
@@ -213,6 +204,9 @@ namespace Ejercicio1Clases
             limpiarCampos();
         }
 
+        //Listados
+
+        //Listar Minimos
         private void minimosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Text = "Listar minimos";
@@ -226,6 +220,7 @@ namespace Ejercicio1Clases
             cmboBoxCategoriaListar.Visible = false;
         }
 
+        //Listar por Categoria
         private void porCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Text = "Listar por categoria";
@@ -239,6 +234,7 @@ namespace Ejercicio1Clases
             cmboBoxCategoriaListar.Visible = true;
         }
 
+        //Listar todos
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Text = "Listar todos";
@@ -256,14 +252,14 @@ namespace Ejercicio1Clases
         {
             txtBoxListar.Text = "";
 
-            if (ListarBox.Text == "Listar todos")
+            if (ListarBox.Text == "Listar todos") //Listar todos
             {
                 foreach (Articulo item in articulos)
                 {
                     txtBoxListar.Text += item.ToString() + "\n";
                 }
             }
-            else if (ListarBox.Text == "Listar minimos")
+            else if (ListarBox.Text == "Listar minimos") //Listar minimos
             {
                 foreach (Articulo item in articulos)
                 {
@@ -273,11 +269,11 @@ namespace Ejercicio1Clases
                     }
                 }
             }
-            else
+            else //Listar por categoria 
             {
                 foreach (Articulo item in articulos)
                 {
-                    switch (cmboBoxCategoriaListar.Text)
+                    switch (cmboBoxCategoriaListar.Text) //Miramos que categoria esta seleccionada
                     {
                         case "Informática":
                             if (item.CategoriaArticulo == "Informática")
@@ -314,16 +310,19 @@ namespace Ejercicio1Clases
             }
         }
 
+        //Salir
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Autor
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Antonio Oliva Carceles 2DAM");
         }
 
+        //Pedidos
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarBox.Visible = false;
@@ -346,6 +345,21 @@ namespace Ejercicio1Clases
                     }
                 }
             }
+        }
+
+        //Metodo para limpiar campos del formulario de insertar y consultas
+        private void limpiarCampos()
+        {
+            txtId.Text = "";
+            txtNombre.Text = "";
+            txtPrecio.Text = "";
+            txtExistencias.Text = "";
+            cmboBoxCategoria.SelectedIndex = -1;
+
+            error.SetError(txtId, "");
+            error.SetError(cmboBoxCategoria, "");
+            error.SetError(txtPrecio, "");
+            error.SetError(txtExistencias, "");
         }
     }
 }
