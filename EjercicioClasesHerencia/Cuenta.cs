@@ -8,26 +8,24 @@ namespace EjercicioClasesHerencia
 {
     internal class Cuenta
     {
-        private int numeroCuenta;
-        private String titular;
-        private String dni;
-        private double saldo;
+        public static int contadorCuentas = 0;
 
-        public Cuenta()
-        {
-        }
+        public int numeroCuenta;
+        public String titular;
+        public String dni;
+        public double saldo;
 
-        public Cuenta(int numeroCuenta, string titular, string dni, double saldo)
+        public Cuenta(string titular, string dni, double saldo)
         {
-            this.numeroCuenta = numeroCuenta;
+            this.numeroCuenta = contadorCuentas++;
             this.titular = titular;
             this.dni = dni;
             this.saldo = saldo;
         }
 
-        public bool Reintegro(double importe)
+        public virtual bool Reintegro(double importe)
         {
-            if ((saldo - importe) > 0 && importe > 0)
+            if (saldo >= importe && importe > 0) // Comprobamos que el saldo sea mayor que el importe y que no sea negativo
             {
                 saldo -= importe;
                 return true;
@@ -40,7 +38,7 @@ namespace EjercicioClasesHerencia
 
         public bool Ingreso(double importe)
         {
-            if (importe > 0)
+            if (importe > 0) //Comprobamos que el importe no sea negativo
             {
                 saldo += importe;
                 return true;
@@ -53,9 +51,9 @@ namespace EjercicioClasesHerencia
 
         public bool Trasferencia(Cuenta destino, double importe)
         {
-            if (this.Reintegro(importe) && destino.Ingreso(importe))
+            if (this.Reintegro(importe) && destino.Ingreso(importe)) 
             {
-                return true;
+                return true; //Si el reintegro de una cuenta y el ingreso en otra funciona devolvemos true
             }
             else
             {
@@ -70,6 +68,5 @@ namespace EjercicioClasesHerencia
                    $"DNI: {dni}\n" +
                    $"Saldo: {saldo} EUROS"; // Formato de saldo como moneda
         }
-
     }
 }
