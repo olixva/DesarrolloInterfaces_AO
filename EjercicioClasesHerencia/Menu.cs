@@ -51,14 +51,14 @@ namespace EjercicioClasesHerencia
             String titular = txtTitular.Text;
             String dni = txtDni.Text;
 
-            if (radioBtnPersonal.Checked == true)
+            if (radioBtnPersonal.Checked == true) //Cuenta tipo personal
             {
                 cuentasList.Add(new Cuenta(titular, dni));
 
                 MessageBox.Show("Cuenta creada correctamente");
                 txtNCuenta.Text = (Int32.Parse(txtNCuenta.Text) + 1).ToString();
             }
-            else
+            else //Cuenta de empresa
             {
                 if (!long.TryParse(txtInteres.Text, out long intereses))
                 {
@@ -77,7 +77,7 @@ namespace EjercicioClasesHerencia
                     valida = false;
                 }
 
-                if (valida)
+                if (valida) //Si los datos son validos lo creamos
                 {
                     cuentasList.Add(new CuentaEmpresa(titular, dni, intereses, mesesCredito, topeCredito));
                     MessageBox.Show("Cuenta creada correctamente");
@@ -94,7 +94,7 @@ namespace EjercicioClasesHerencia
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (radioNumero.Checked)
+            if (radioNumero.Checked) //Buscamos por numero de cuenta
             {
                 foreach (Cuenta cuenta in cuentasList)
                 {
@@ -104,7 +104,7 @@ namespace EjercicioClasesHerencia
                     }
                 }
             }
-            else
+            else //Buscamos por DNI
             {
                 foreach (Cuenta cuenta in cuentasList)
                 {
@@ -164,13 +164,13 @@ namespace EjercicioClasesHerencia
 
             bool encontrada = false;
 
-            if (radioReintegro.Checked)
+            if (radioReintegro.Checked) //Reintegro
             {
                 foreach (Cuenta cuenta in cuentasList)
                 {
                     if (cuenta.NumeroCuenta.ToString().Equals(txtNumeroOpraciones.Text))
                     {
-                        encontrada = true;
+                        encontrada = true; //La cuenta existe
                         if (cuenta.Reintegro(importe))
                         {
                             MessageBox.Show("Reintegro realizado correctamente");
@@ -183,7 +183,7 @@ namespace EjercicioClasesHerencia
                     }
                 }
             }
-            else
+            else //Ingreso
             {
                 foreach (Cuenta cuenta in cuentasList)
                 {
