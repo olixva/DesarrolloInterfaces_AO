@@ -1,6 +1,4 @@
-﻿using System.Drawing.Text;
-
-namespace EjercicioClasesHerencia
+﻿namespace EjercicioClasesHerencia
 {
     internal class CuentaEmpresa : Cuenta
     {
@@ -9,8 +7,8 @@ namespace EjercicioClasesHerencia
         public int mesesCredito;
         public double topeCredito;
 
-        public CuentaEmpresa(string titular, string dni, double saldo, long interes, int mesesCredito, double topeCredito)
-        : base(titular, dni, saldo)
+        public CuentaEmpresa(string titular, string dni, long interes, int mesesCredito, double topeCredito)
+        : base(titular, dni)
         {
             this.credito = 0;
             this.interes = interes;
@@ -21,7 +19,7 @@ namespace EjercicioClasesHerencia
         public override bool Reintegro(double importe)
         {
             return (importe > 0 && (base.Reintegro(importe) || CalcularCredito(importe)));
-            
+
         }
 
         public string MostrarCredito()
@@ -34,18 +32,30 @@ namespace EjercicioClasesHerencia
         }
 
 
-        private bool CalcularCredito(double importe) {
+        private bool CalcularCredito(double importe)
+        {
             //Comprobamos que el importe a prestar (importe - saldo) no supera el credito disponible (topeCredito - credito)
             if ((importe - saldo) < (topeCredito - credito))
             {
                 credito += (importe - saldo);
                 saldo = 0;
-                return true;
+                return true; //Devolvemos true si se saca credito
             }
             else
             {
-                return false;
+                return false; //Devolvemos false si no es posible
             }
+        }
+        public override string ToString()
+        {
+            return $"Número de Cuenta: {NumeroCuenta}\n" +
+                   $"Titular: {titular}\n" +
+                   $"DNI: {Dni}\n" +
+                   $"Saldo: {saldo} EUROS\n" +
+                   $"Crédito: {credito} EUROS\n" +
+                   $"Interés: {interes}%\n" +
+                   $"Meses de Crédito: {mesesCredito}\n" +
+                   $"Tope de Crédito: {topeCredito} EUROS";
         }
     }
 }

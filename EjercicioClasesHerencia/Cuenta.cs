@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EjercicioClasesHerencia
 {
@@ -10,17 +6,20 @@ namespace EjercicioClasesHerencia
     {
         public static int contadorCuentas = 0;
 
-        public int numeroCuenta;
+        private int numeroCuenta;
         public String titular;
-        public String dni;
+        private String dni;
         public double saldo;
 
-        public Cuenta(string titular, string dni, double saldo)
+        public int NumeroCuenta { get => numeroCuenta; set => numeroCuenta = value; }
+        public string Dni { get => dni; set => dni = value; }
+
+        public Cuenta(string titular, string dni)
         {
-            this.numeroCuenta = contadorCuentas++;
+            this.numeroCuenta = ++contadorCuentas;
             this.titular = titular;
             this.dni = dni;
-            this.saldo = saldo;
+            this.saldo = 0;
         }
 
         public virtual bool Reintegro(double importe)
@@ -51,14 +50,7 @@ namespace EjercicioClasesHerencia
 
         public bool Trasferencia(Cuenta destino, double importe)
         {
-            if (this.Reintegro(importe) && destino.Ingreso(importe)) 
-            {
-                return true; //Si el reintegro de una cuenta y el ingreso en otra funciona devolvemos true
-            }
-            else
-            {
-                return false;
-            }
+            return this.Reintegro(importe) && destino.Ingreso(importe);
         }
 
         public override string ToString()
