@@ -26,7 +26,7 @@
         {
             double cuotaMensual = (credito + (credito * interes / 100)) / mesesCredito;
 
-            string resultado = $"Crédito: {credito}\nInterés: {interes}%\nNumero de cuotas: {mesesCredito}\nCuota Mensual: {cuotaMensual}";
+            string resultado = $"\nCuota Mensual: {cuotaMensual}";
 
             return resultado;
         }
@@ -35,7 +35,7 @@
         private bool CalcularCredito(double importe)
         {
             //Comprobamos que el importe a prestar (importe - saldo) no supera el credito disponible (topeCredito - credito)
-            if ((importe - saldo) < (topeCredito - credito))
+            if ((importe - saldo) <= (topeCredito - credito))
             {
                 credito += (importe - saldo);
                 saldo = 0;
@@ -55,7 +55,8 @@
                    $"Crédito: {credito} EUROS\n" +
                    $"Interés: {interes}%\n" +
                    $"Meses de Crédito: {mesesCredito}\n" +
-                   $"Tope de Crédito: {topeCredito} EUROS";
+                   $"Tope de Crédito: {topeCredito} EUROS" +
+                   $"\n {this.MostrarCredito()}";
         }
     }
 }

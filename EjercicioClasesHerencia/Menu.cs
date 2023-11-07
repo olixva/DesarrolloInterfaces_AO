@@ -19,7 +19,7 @@ namespace EjercicioClasesHerencia
             grpBoxAltas.Visible = true;
 
             grpBoxConsultas.Visible = false;
-            grpIngresoReintegro.Visible = false;
+            grpOperaciones.Visible = false;
             grpTrasferencias.Visible = false;
         }
 
@@ -122,7 +122,7 @@ namespace EjercicioClasesHerencia
             grpBoxConsultas.Visible = true;
 
             grpBoxAltas.Visible = false;
-            grpIngresoReintegro.Visible = false;
+            grpOperaciones.Visible = false;
             grpTrasferencias.Visible = false;
 
             radioNumero.Checked = true;
@@ -140,7 +140,7 @@ namespace EjercicioClasesHerencia
             grpBoxConsultas.Visible = true;
 
             grpBoxAltas.Visible = false;
-            grpIngresoReintegro.Visible = false;
+            grpOperaciones.Visible = false;
             grpTrasferencias.Visible = false;
 
             radioDNI.Checked = true;
@@ -174,6 +174,7 @@ namespace EjercicioClasesHerencia
                         if (cuenta.Reintegro(importe))
                         {
                             MessageBox.Show("Reintegro realizado correctamente");
+                            error.SetError(txtImporte, "");
                         }
                         else
                         {
@@ -192,6 +193,7 @@ namespace EjercicioClasesHerencia
                         if (cuenta.Ingreso(importe))
                         {
                             MessageBox.Show("Ingreso realizado correctamente");
+                            error.SetError(txtImporte, "");
                         }
                         else
                         {
@@ -243,6 +245,48 @@ namespace EjercicioClasesHerencia
 
         private void brnTrasferir_Click(object sender, EventArgs e)
         {
+            //Comprobamos que ambas cuentas existan
+            Cuenta cuentaOrigen = null;
+            Cuenta cuentaDestino = null;
+
+            foreach (Cuenta cuenta in cuentasList)
+            {
+                if (cuenta.NumeroCuenta.ToString().Equals(txtNOrigen.Text))
+                {
+                    cuentaOrigen = cuenta;
+                }
+                else if (cuenta.NumeroCuenta.ToString().Equals(txtNDestino.Text))
+                {
+                    cuentaDestino = cuenta;
+                }
+            }
+
+            //Comprobamos que las cuentas existen
+            if (cuentaDestino != null && cuentaOrigen != null)
+            {
+                //Comprobamos que el importe sea valido
+                if (!Double.TryParse(txtImporteTrasf.Text, out double importe))
+                {
+                    error.SetError(txtImporteTrasf, "Formato invalido");
+                    return;
+                }
+
+                error.SetError(txtImporteTrasf, "");
+
+                //Comprobamos si se puede hacer la trasferencia
+                if (cuentaOrigen.Trasferencia(cuentaDestino, importe))
+                {
+                    MessageBox.Show("Trasferencia realizada correctamente"); //Se hace la trasferencia
+                }
+                else
+                {
+                    MessageBox.Show("Trasferencia no realizada, saldo insuficiente"); //No se hace
+                }
+            }
+            else //Alguna de las cuentas no existen
+            {
+                MessageBox.Show("Cuenta de Origen o de Destino no existe");
+            }
 
         }
         private void entreCuentasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -251,7 +295,7 @@ namespace EjercicioClasesHerencia
 
             grpBoxAltas.Visible = false;
             grpBoxConsultas.Visible = false;
-            grpIngresoReintegro.Visible = false;
+            grpOperaciones.Visible = false;
         }
 
         //Salir

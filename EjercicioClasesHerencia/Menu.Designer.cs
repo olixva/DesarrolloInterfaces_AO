@@ -86,6 +86,7 @@
             this.lblNDestino = new System.Windows.Forms.Label();
             this.txtNDestino = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip.SuspendLayout();
             this.grpBoxAltas.SuspendLayout();
             this.grpBoxTipo.SuspendLayout();
@@ -95,6 +96,7 @@
             this.grpIngresoReintegro.SuspendLayout();
             this.grpTrasferencias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -109,7 +111,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(2071, 36);
+            this.menuStrip.Size = new System.Drawing.Size(910, 36);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -386,7 +388,7 @@
             this.grpBoxConsultas.Controls.Add(this.txtDNIBuscar);
             this.grpBoxConsultas.Controls.Add(this.txtNumeroBuscar);
             this.grpBoxConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxConsultas.Location = new System.Drawing.Point(150, 63);
+            this.grpBoxConsultas.Location = new System.Drawing.Point(37, 77);
             this.grpBoxConsultas.Name = "grpBoxConsultas";
             this.grpBoxConsultas.Size = new System.Drawing.Size(778, 608);
             this.grpBoxConsultas.TabIndex = 21;
@@ -478,7 +480,7 @@
             this.grpOperaciones.Controls.Add(this.txtImporte);
             this.grpOperaciones.Controls.Add(this.txtNumeroOpraciones);
             this.grpOperaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpOperaciones.Location = new System.Drawing.Point(962, 98);
+            this.grpOperaciones.Location = new System.Drawing.Point(31, 92);
             this.grpOperaciones.Name = "grpOperaciones";
             this.grpOperaciones.Size = new System.Drawing.Size(835, 608);
             this.grpOperaciones.TabIndex = 22;
@@ -641,11 +643,15 @@
             // 
             this.error.ContainerControl = this;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2071, 837);
+            this.ClientSize = new System.Drawing.Size(910, 752);
             this.Controls.Add(this.grpBoxConsultas);
             this.Controls.Add(this.grpOperaciones);
             this.Controls.Add(this.grpBoxAltas);
@@ -671,6 +677,7 @@
             this.grpTrasferencias.ResumeLayout(false);
             this.grpTrasferencias.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -735,6 +742,7 @@
         private System.Windows.Forms.Label lblNDestino;
         private System.Windows.Forms.TextBox txtNDestino;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
