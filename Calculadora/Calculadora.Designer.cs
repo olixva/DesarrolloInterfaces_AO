@@ -217,7 +217,7 @@
             this.btnIgual.TabIndex = 13;
             this.btnIgual.Text = "=";
             this.btnIgual.UseVisualStyleBackColor = true;
-            this.btnIgual.Click += new System.EventHandler(this.btnIgual_Click);
+            this.btnIgual.Click += new System.EventHandler(this.btnOperacion_Click);
             // 
             // btnOnOff
             // 
@@ -240,7 +240,7 @@
             this.btnMas.TabIndex = 15;
             this.btnMas.Text = "+";
             this.btnMas.UseVisualStyleBackColor = true;
-            this.btnMas.Click += new System.EventHandler(this.btnMas_Click);
+            this.btnMas.Click += new System.EventHandler(this.btnOperacion_Click);
             // 
             // btnMenos
             // 
@@ -252,7 +252,7 @@
             this.btnMenos.TabIndex = 16;
             this.btnMenos.Text = "-";
             this.btnMenos.UseVisualStyleBackColor = true;
-            this.btnMenos.Click += new System.EventHandler(this.btnMenos_Click);
+            this.btnMenos.Click += new System.EventHandler(this.btnOperacion_Click);
             // 
             // btnMulti
             // 
@@ -264,7 +264,7 @@
             this.btnMulti.TabIndex = 17;
             this.btnMulti.Text = "X";
             this.btnMulti.UseVisualStyleBackColor = true;
-            this.btnMulti.Click += new System.EventHandler(this.btnMulti_Click);
+            this.btnMulti.Click += new System.EventHandler(this.btnOperacion_Click);
             // 
             // btnDiv
             // 
@@ -276,7 +276,7 @@
             this.btnDiv.TabIndex = 18;
             this.btnDiv.Text = "/";
             this.btnDiv.UseVisualStyleBackColor = true;
-            this.btnDiv.Click += new System.EventHandler(this.btnDiv_Click);
+            this.btnDiv.Click += new System.EventHandler(this.btnOperacion_Click);
             // 
             // txtNumeros
             // 
@@ -292,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 680);
+            this.ClientSize = new System.Drawing.Size(850, 680);
             this.Controls.Add(this.txtNumeros);
             this.Controls.Add(this.btnDiv);
             this.Controls.Add(this.btnMulti);

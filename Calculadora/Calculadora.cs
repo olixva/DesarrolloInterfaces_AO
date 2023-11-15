@@ -10,9 +10,14 @@ namespace Calculadora
 
         private bool coma = false;
         private bool positivo = true;
+        private bool nuevaOperacion = false;
+        private bool primeraOperacion = true;
 
-        static Double? resultadoAnterior = null;
-        static Operacion hacer = Operacion.NADA;
+
+        private Double? resultadoAnterior = null;
+        private Double? operando = null;
+        private Operacion hacer = Operacion.NADA;
+
 
         public Calculadora()
         {
@@ -53,19 +58,24 @@ namespace Calculadora
             btnMulti.Enabled = encendida;
             btnPosNeg.Enabled = encendida;
 
-            txtNumeros.Text = "0";
-            resultadoAnterior = null;
-            coma = false;
-            positivo = true;
+            limpiar();
         }
 
         //Borrar 
         private void btnC_Click(object sender, EventArgs e)
         {
+            limpiar();
+        }
+
+        private void limpiar()
+        {
             txtNumeros.Text = "0";
             resultadoAnterior = null;
+
             coma = false;
             positivo = true;
+
+            nuevaOperacion = false;
         }
 
         //Poner positivo o negativo
@@ -95,15 +105,15 @@ namespace Calculadora
             {
                 txtNumeros.Text = numero;
             }
-            else if (hacer == Operacion.NADA)
+            else if (nuevaOperacion)
             {
-                txtNumeros.Text += numero;
+                txtNumeros.Text = numero;
+                nuevaOperacion = false;
             }
             else
             {
-                Operar(Double.Parse(txtNumeros.Text));
+                txtNumeros.Text += numero;
             }
-
         }
 
         //Pulsar la coma
@@ -119,58 +129,101 @@ namespace Calculadora
 
         //Operaciones
 
-        //Suma
-        private void btnMas_Click(object sender, EventArgs e)
+        private void btnOperacion_Click(object sender, EventArgs e)
         {
-            hacer = Operacion.SUMA;
+
+            // Establece la nueva operación y muestra el resultado de la anterior
+            if (sender == btnMas)
+            {
+                Operar(Double.Parse(txtNumeros.Text));
+                hacer = Operacion.SUMA;
+                nuevaOperacion = true;
+
+                mostrarResultado();
+
+            }
+
+
+            else if (sender == btnMenos)
+            {
+                Operar(Double.Parse(txtNumeros.Text));
+                hacer = Operacion.RESTA;
+                nuevaOperacion = true;
+
+                mostrarResultado();
+            }
+
+            else if (sender == btnMulti)
+            {
+                Operar(Double.Parse(txtNumeros.Text));
+                hacer = Operacion.MULTIPLICACION;
+                nuevaOperacion = true;
+
+                mostrarResultado();
+            }
+
+            else if (sender == btnDiv)
+            {
+                Operar(Double.Parse(txtNumeros.Text));
+                hacer = Operacion.DIVISION;
+                nuevaOperacion = true;
+
+                mostrarResultado();
+            }
+
+            else if (sender == btnIgual)
+            {
+                nuevaOperacion = true;
+
+                mostrarResultado();
+            }
         }
 
-        //Resta
-        private void btnMenos_Click(object sender, EventArgs e)
+        //Mostrar resultado
+        private void mostrarResultado()
         {
-            hacer = Operacion.RESTA;
+            if (!primeraOperacion)
+            {
+                txtNumeros.Text = resultadoAnterior.ToString();
+            }
         }
 
-        //Multiplicacion
-        private void btnMulti_Click(object sender, EventArgs e)
-        {
-            hacer = Operacion.MULTIPLICACION;
-        }
-
-        //Division
-        private void btnDiv_Click(object sender, EventArgs e)
-        {
-            hacer = Operacion.DIVISION;
-        }
-
-        //Igual
-        private void btnIgual_Click(object sender, EventArgs e)
-        {
-        }
 
         //Metodo que hace las operaciones
         private void Operar(Double numero)
         {
             switch (hacer)
             {
-
                 case Operacion.SUMA:
-                    resultadoAnterior = resultadoAnterior + numero;
-                    hacer = Operacion.NADA;
+
+                    operando = double.Parse(txtNumeros.Text);
+                    resultadoAnterior = resultadoAnterior + operando;
+
                     break;
+
                 case Operacion.RESTA:
-                    resultadoAnterior = resultadoAnterior - numero;
-                    hacer = Operacion.NADA;
+                    operando = double.Parse(txtNumeros.Text);
+                    resultadoAnterior = resultadoAnterior - operando;
                     break;
                 case Operacion.MULTIPLICACION:
-                    resultadoAnterior = resultadoAnterior * numero;
-                    hacer = Operacion.NADA;
+                    operando = double.Parse(txtNumeros.Text);
+                    resultadoAnterior = resultadoAnterior * operando;
                     break;
                 case Operacion.DIVISION:
-                    resultadoAnterior = resultadoAnterior / numero;
-                    hacer = Operacion.NADA;
+                    operando = double.Parse(txtNumeros.Text);
+                    resultadoAnterior = resultadoAnterior / operando;
                     break;
+
                 case Operacion.IGUAL:
+                    break;
+
+                default:
+
+                    if (primeraOperacion)
+                    {
+                        resultadoAnterior = double.Parse(txtNumeros.Text);
+                        primeraOperacion = false;
+                    }
 
                     break;
             }
