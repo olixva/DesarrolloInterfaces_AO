@@ -71,12 +71,17 @@ namespace Calculadora
         private void limpiar()
         {
             txtNumeros.Text = "0";
-            resultadoAnterior = null;
 
             coma = false;
             positivo = true;
-
             nuevaOperacion = false;
+            primeraOperacion = true;
+            hacerOperacion = false;
+
+
+            resultadoAnterior = null;
+            operando = null;
+            hacer = Operacion.NADA;
         }
 
         //Poner positivo o negativo
@@ -176,6 +181,9 @@ namespace Calculadora
             else if (sender == btnIgual)
             {
                 nuevaOperacion = true;
+                Operar(Double.Parse(txtNumeros.Text));
+                hacer = Operacion.IGUAL;
+                Operar(Double.Parse(txtNumeros.Text));
 
                 mostrarResultado();
             }
@@ -202,26 +210,29 @@ namespace Calculadora
                     {
                         operando = double.Parse(txtNumeros.Text);
                         resultadoAnterior = resultadoAnterior + operando;
-
-
                     }
                     break;
 
                 case Operacion.RESTA:
+
                     if (hacerOperacion)
                     {
                         operando = double.Parse(txtNumeros.Text);
                         resultadoAnterior = resultadoAnterior - operando;
                     }
                     break;
+
                 case Operacion.MULTIPLICACION:
+
                     if (hacerOperacion)
                     {
                         operando = double.Parse(txtNumeros.Text);
                         resultadoAnterior = resultadoAnterior * operando;
                     }
                     break;
+
                 case Operacion.DIVISION:
+
                     if (hacerOperacion)
                     {
                         operando = double.Parse(txtNumeros.Text);
@@ -230,6 +241,7 @@ namespace Calculadora
                     break;
 
                 case Operacion.IGUAL:
+                    mostrarResultado();
                     break;
 
                 default:
