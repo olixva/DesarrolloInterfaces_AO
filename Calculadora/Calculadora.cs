@@ -107,13 +107,15 @@ namespace Calculadora
 
         private void PonerNumero(String numero)
         {
-            if (txtNumeros.Text == "0")
+            if (txtNumeros.Text == "0" || txtNumeros.Text == "-0")
             {
-                txtNumeros.Text = numero;
+                txtNumeros.Text = txtNumeros.Text.Replace('0', numero.ToCharArray()[0]);
             }
             else if (nuevaOperacion)
             {
                 txtNumeros.Text = numero;
+                coma = false;
+                positivo = true;
                 nuevaOperacion = false;
                 hacerOperacion = true;
             }
