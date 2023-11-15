@@ -12,6 +12,7 @@ namespace Calculadora
         private bool positivo = true;
         private bool nuevaOperacion = false;
         private bool primeraOperacion = true;
+        private bool hacerOperacion = false;
 
 
         private Double? resultadoAnterior = null;
@@ -109,6 +110,7 @@ namespace Calculadora
             {
                 txtNumeros.Text = numero;
                 nuevaOperacion = false;
+                hacerOperacion = true;
             }
             else
             {
@@ -138,7 +140,7 @@ namespace Calculadora
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.SUMA;
                 nuevaOperacion = true;
-
+                hacerOperacion = false;
                 mostrarResultado();
 
             }
@@ -149,7 +151,7 @@ namespace Calculadora
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.RESTA;
                 nuevaOperacion = true;
-
+                hacerOperacion = false;
                 mostrarResultado();
             }
 
@@ -158,7 +160,7 @@ namespace Calculadora
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.MULTIPLICACION;
                 nuevaOperacion = true;
-
+                hacerOperacion = false;
                 mostrarResultado();
             }
 
@@ -167,7 +169,7 @@ namespace Calculadora
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.DIVISION;
                 nuevaOperacion = true;
-
+                hacerOperacion = false;
                 mostrarResultado();
             }
 
@@ -196,22 +198,35 @@ namespace Calculadora
             {
                 case Operacion.SUMA:
 
-                    operando = double.Parse(txtNumeros.Text);
-                    resultadoAnterior = resultadoAnterior + operando;
+                    if (hacerOperacion)
+                    {
+                        operando = double.Parse(txtNumeros.Text);
+                        resultadoAnterior = resultadoAnterior + operando;
 
+
+                    }
                     break;
 
                 case Operacion.RESTA:
-                    operando = double.Parse(txtNumeros.Text);
-                    resultadoAnterior = resultadoAnterior - operando;
+                    if (hacerOperacion)
+                    {
+                        operando = double.Parse(txtNumeros.Text);
+                        resultadoAnterior = resultadoAnterior - operando;
+                    }
                     break;
                 case Operacion.MULTIPLICACION:
-                    operando = double.Parse(txtNumeros.Text);
-                    resultadoAnterior = resultadoAnterior * operando;
+                    if (hacerOperacion)
+                    {
+                        operando = double.Parse(txtNumeros.Text);
+                        resultadoAnterior = resultadoAnterior * operando;
+                    }
                     break;
                 case Operacion.DIVISION:
-                    operando = double.Parse(txtNumeros.Text);
-                    resultadoAnterior = resultadoAnterior / operando;
+                    if (hacerOperacion)
+                    {
+                        operando = double.Parse(txtNumeros.Text);
+                        resultadoAnterior = resultadoAnterior / operando;
+                    }
                     break;
 
                 case Operacion.IGUAL:
