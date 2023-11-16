@@ -9,7 +9,6 @@ namespace Calculadora
         private bool encendida = false;
 
         private bool coma = false;
-        private bool positivo = true;
         private bool nuevaOperacion = false;
         private bool primeraOperacion = true;
         private bool hacerOperacion = false;
@@ -73,7 +72,6 @@ namespace Calculadora
             txtNumeros.Text = "0";
 
             coma = false;
-            positivo = true;
             nuevaOperacion = false;
             primeraOperacion = true;
             hacerOperacion = false;
@@ -87,16 +85,8 @@ namespace Calculadora
         //Poner positivo o negativo
         private void btnPosNeg_Click(object sender, EventArgs e)
         {
-            if (positivo)
-            {
-                txtNumeros.Text = "-" + txtNumeros.Text;
-                positivo = false;
-            }
-            else
-            {
-                txtNumeros.Text = txtNumeros.Text.Substring(1);
-                positivo = true;
-            }
+            txtNumeros.Text = (Double.Parse(txtNumeros.Text) * -1).ToString();
+            resultadoAnterior = Double.Parse(txtNumeros.Text);
         }
 
         //Pulsar cualquier numero
@@ -113,9 +103,13 @@ namespace Calculadora
             }
             else if (nuevaOperacion)
             {
+                if (!txtNumeros.Text.Contains(","))
+                {
+                    coma = false;
+                }
+
                 txtNumeros.Text = numero;
-                coma = false;
-                positivo = true;
+
                 nuevaOperacion = false;
                 hacerOperacion = true;
             }
@@ -129,7 +123,7 @@ namespace Calculadora
 
         private void btnComa_Click(object sender, EventArgs e)
         {
-            if (!coma)
+            if (!coma && !nuevaOperacion)
             {
                 txtNumeros.Text += ",";
                 coma = true;
@@ -151,7 +145,6 @@ namespace Calculadora
                 mostrarResultado();
 
             }
-
 
             else if (sender == btnMenos)
             {
@@ -194,7 +187,7 @@ namespace Calculadora
         //Mostrar resultado
         private void mostrarResultado()
         {
-            if (!primeraOperacion)
+            if (!primeraOperacion && nuevaOperacion)
             {
                 txtNumeros.Text = resultadoAnterior.ToString();
             }
