@@ -30,7 +30,6 @@ namespace Calculadora
             if (encendida)
             {
                 btnOnOff.Text = "On";
-
             }
             else
             {
@@ -75,7 +74,7 @@ namespace Calculadora
             nuevaOperacion = false;
             primeraOperacion = true;
             hacerOperacion = false;
-
+            igualPulsado = false;
 
             resultadoAnterior = null;
             operando = null;
@@ -135,16 +134,17 @@ namespace Calculadora
             // Establece la nueva operación y muestra el resultado de la anterior
             if (sender == btnMas)
             {
+                igualPulsado = false;
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.SUMA;
                 nuevaOperacion = true;
                 hacerOperacion = false;
                 mostrarResultado();
-
             }
 
             else if (sender == btnMenos)
             {
+                igualPulsado = false;
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.RESTA;
                 nuevaOperacion = true;
@@ -154,6 +154,7 @@ namespace Calculadora
 
             else if (sender == btnMulti)
             {
+                igualPulsado = false;
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.MULTIPLICACION;
                 nuevaOperacion = true;
@@ -163,6 +164,7 @@ namespace Calculadora
 
             else if (sender == btnDiv)
             {
+                igualPulsado = false;
                 Operar(Double.Parse(txtNumeros.Text));
                 hacer = Operacion.DIVISION;
                 nuevaOperacion = true;
@@ -173,7 +175,6 @@ namespace Calculadora
             else if (sender == btnIgual)
             {
 
-                //TODO si repites que rehaga operacion if boolean igual pulsado
                 if (!igualPulsado)
                 {
                     nuevaOperacion = true;
@@ -184,6 +185,7 @@ namespace Calculadora
                 {
                     Operar(Double.Parse(operando.ToString()));
                     mostrarResultado();
+                    hacerOperacion = false;
                 }
 
                 igualPulsado = true;
@@ -207,7 +209,7 @@ namespace Calculadora
             {
                 case Operacion.SUMA:
 
-                    if (hacerOperacion)
+                    if (hacerOperacion || igualPulsado)
                     {
                         if (!igualPulsado)
                         {
@@ -219,7 +221,7 @@ namespace Calculadora
 
                 case Operacion.RESTA:
 
-                    if (hacerOperacion)
+                    if (hacerOperacion || igualPulsado)
                     {
                         if (!igualPulsado)
                         {
@@ -233,7 +235,7 @@ namespace Calculadora
 
                     if (hacerOperacion)
                     {
-                        if (!igualPulsado)
+                        if (!igualPulsado || igualPulsado)
                         {
                             operando = double.Parse(txtNumeros.Text);
                         }
@@ -243,7 +245,7 @@ namespace Calculadora
 
                 case Operacion.DIVISION:
 
-                    if (hacerOperacion)
+                    if (hacerOperacion || igualPulsado)
                     {
                         if (!igualPulsado)
                         {
