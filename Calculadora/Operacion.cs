@@ -6,7 +6,6 @@
         RESTA,
         MULTIPLICACION,
         DIVISION,
-        IGUAL,
         NADA
     }
 }

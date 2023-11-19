@@ -12,7 +12,7 @@ namespace Calculadora
         private bool nuevaOperacion = false;
         private bool primeraOperacion = true;
         private bool hacerOperacion = false;
-
+        private bool igualPulsado = false;
 
         private Double? resultadoAnterior = null;
         private Double? operando = null;
@@ -103,14 +103,11 @@ namespace Calculadora
             }
             else if (nuevaOperacion)
             {
-                if (!txtNumeros.Text.Contains(","))
-                {
-                    coma = false;
-                }
-
                 txtNumeros.Text = numero;
 
                 nuevaOperacion = false;
+                igualPulsado = false;
+                coma = false;
                 hacerOperacion = true;
             }
             else
@@ -175,12 +172,21 @@ namespace Calculadora
 
             else if (sender == btnIgual)
             {
-                nuevaOperacion = true;
-                Operar(Double.Parse(txtNumeros.Text));
-                hacer = Operacion.IGUAL;
-                Operar(Double.Parse(txtNumeros.Text));
 
-                mostrarResultado();
+                //TODO si repites que rehaga operacion if boolean igual pulsado
+                if (!igualPulsado)
+                {
+                    nuevaOperacion = true;
+                    Operar(Double.Parse(txtNumeros.Text));
+                    mostrarResultado();
+                }
+                else
+                {
+                    Operar(Double.Parse(operando.ToString()));
+                    mostrarResultado();
+                }
+
+                igualPulsado = true;
             }
         }
 
@@ -203,7 +209,10 @@ namespace Calculadora
 
                     if (hacerOperacion)
                     {
-                        operando = double.Parse(txtNumeros.Text);
+                        if (!igualPulsado)
+                        {
+                            operando = double.Parse(txtNumeros.Text);
+                        }
                         resultadoAnterior = resultadoAnterior + operando;
                     }
                     break;
@@ -212,7 +221,10 @@ namespace Calculadora
 
                     if (hacerOperacion)
                     {
-                        operando = double.Parse(txtNumeros.Text);
+                        if (!igualPulsado)
+                        {
+                            operando = double.Parse(txtNumeros.Text);
+                        }
                         resultadoAnterior = resultadoAnterior - operando;
                     }
                     break;
@@ -221,7 +233,10 @@ namespace Calculadora
 
                     if (hacerOperacion)
                     {
-                        operando = double.Parse(txtNumeros.Text);
+                        if (!igualPulsado)
+                        {
+                            operando = double.Parse(txtNumeros.Text);
+                        }
                         resultadoAnterior = resultadoAnterior * operando;
                     }
                     break;
@@ -230,13 +245,12 @@ namespace Calculadora
 
                     if (hacerOperacion)
                     {
-                        operando = double.Parse(txtNumeros.Text);
+                        if (!igualPulsado)
+                        {
+                            operando = double.Parse(txtNumeros.Text);
+                        }
                         resultadoAnterior = resultadoAnterior / operando;
                     }
-                    break;
-
-                case Operacion.IGUAL:
-                    mostrarResultado();
                     break;
 
                 default:
