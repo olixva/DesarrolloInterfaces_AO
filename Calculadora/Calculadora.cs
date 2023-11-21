@@ -8,7 +8,6 @@ namespace Calculadora
 
         private bool encendida = false;
 
-        private bool coma = false;
         private bool nuevaOperacion = false;
         private bool primeraOperacion = true;
         private bool hacerOperacion = false;
@@ -17,7 +16,6 @@ namespace Calculadora
         private Double? resultadoAnterior = null;
         private Double? operando = null;
         private Operacion hacer = Operacion.NADA;
-
 
         public Calculadora()
         {
@@ -70,7 +68,6 @@ namespace Calculadora
         {
             txtNumeros.Text = "0";
 
-            coma = false;
             nuevaOperacion = false;
             primeraOperacion = true;
             hacerOperacion = false;
@@ -84,8 +81,15 @@ namespace Calculadora
         //Poner positivo o negativo
         private void btnPosNeg_Click(object sender, EventArgs e)
         {
-            txtNumeros.Text = (Double.Parse(txtNumeros.Text) * -1).ToString();
-            resultadoAnterior = Double.Parse(txtNumeros.Text);
+            if (txtNumeros.Text == "0")
+            {
+                txtNumeros.Text = "-0";
+            }
+            else
+            {
+                txtNumeros.Text = (Double.Parse(txtNumeros.Text) * -1).ToString();
+                resultadoAnterior = Double.Parse(txtNumeros.Text);
+            }
         }
 
         //Pulsar cualquier numero
@@ -106,7 +110,6 @@ namespace Calculadora
 
                 nuevaOperacion = false;
                 igualPulsado = false;
-                coma = false;
                 hacerOperacion = true;
             }
             else
@@ -119,10 +122,9 @@ namespace Calculadora
 
         private void btnComa_Click(object sender, EventArgs e)
         {
-            if (!coma && !nuevaOperacion)
+            if (!txtNumeros.Text.Contains(",") && !nuevaOperacion)
             {
                 txtNumeros.Text += ",";
-                coma = true;
             }
         }
 
@@ -174,12 +176,12 @@ namespace Calculadora
 
             else if (sender == btnIgual)
             {
-
                 if (!igualPulsado)
                 {
                     nuevaOperacion = true;
                     Operar(Double.Parse(txtNumeros.Text));
                     mostrarResultado();
+                    hacerOperacion = false;
                 }
                 else
                 {
@@ -233,9 +235,9 @@ namespace Calculadora
 
                 case Operacion.MULTIPLICACION:
 
-                    if (hacerOperacion)
+                    if (hacerOperacion || igualPulsado)
                     {
-                        if (!igualPulsado || igualPulsado)
+                        if (!igualPulsado)
                         {
                             operando = double.Parse(txtNumeros.Text);
                         }
@@ -265,6 +267,50 @@ namespace Calculadora
 
                     break;
             }
+        }
+
+        private void Calculadora_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char tecla = e.KeyChar;
+
+            // Si la tecla presionada es un número
+            if (Char.IsDigit(tecla))
+            {
+                // Lógica para manejar números
+                PonerNumero(tecla.ToString());
+            }
+            else
+            {
+                // Lógica para manejar operadores
+                switch (tecla)
+                {
+                    case '+':
+                        btnMas.PerformClick();
+                        btnMas.Focus();
+                        break;
+                    case '-':
+                        btnMenos.PerformClick();
+                        btnMenos.Focus();
+                        break;
+                    case '*':
+                        btnMulti.PerformClick();
+                        btnMulti.Focus();
+                        break;
+                    case '/':
+                        btnDiv.PerformClick();
+                        btnDiv.Focus();
+                        break;
+                    case ',':
+                        btnComa.PerformClick();
+                        btnComa.Focus();
+                        break;
+                    case '=':
+                        btnIgual.PerformClick();
+                        btnIgual.Focus();
+                        break;
+                }
+            }
+            e.Handled = true;
         }
     }
 }
