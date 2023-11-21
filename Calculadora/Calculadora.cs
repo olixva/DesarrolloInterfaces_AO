@@ -35,25 +35,11 @@ namespace Calculadora
             }
 
             encendida = !encendida;
-
-            btn0.Enabled = encendida;
-            btn1.Enabled = encendida;
-            btn2.Enabled = encendida;
-            btn3.Enabled = encendida;
-            btn4.Enabled = encendida;
-            btn5.Enabled = encendida;
-            btn6.Enabled = encendida;
-            btn7.Enabled = encendida;
-            btn8.Enabled = encendida;
-            btn9.Enabled = encendida;
-            btnC.Enabled = encendida;
-            btnComa.Enabled = encendida;
-            btnDiv.Enabled = encendida;
-            btnIgual.Enabled = encendida;
-            btnMas.Enabled = encendida;
-            btnMenos.Enabled = encendida;
-            btnMulti.Enabled = encendida;
-            btnPosNeg.Enabled = encendida;
+            foreach (Button btn in panel.Controls)
+            {
+                btn.Enabled = (btn == btnOnOff) ? btn.Enabled = true : btn.Enabled = encendida;
+            }
+            txtNumeros.Enabled = encendida;
 
             limpiar();
         }
@@ -141,7 +127,7 @@ namespace Calculadora
                 hacer = Operacion.SUMA;
                 nuevaOperacion = true;
                 hacerOperacion = false;
-                mostrarResultado();
+                MostrarResultado();
             }
 
             else if (sender == btnMenos)
@@ -151,7 +137,7 @@ namespace Calculadora
                 hacer = Operacion.RESTA;
                 nuevaOperacion = true;
                 hacerOperacion = false;
-                mostrarResultado();
+                MostrarResultado();
             }
 
             else if (sender == btnMulti)
@@ -161,7 +147,7 @@ namespace Calculadora
                 hacer = Operacion.MULTIPLICACION;
                 nuevaOperacion = true;
                 hacerOperacion = false;
-                mostrarResultado();
+                MostrarResultado();
             }
 
             else if (sender == btnDiv)
@@ -171,7 +157,7 @@ namespace Calculadora
                 hacer = Operacion.DIVISION;
                 nuevaOperacion = true;
                 hacerOperacion = false;
-                mostrarResultado();
+                MostrarResultado();
             }
 
             else if (sender == btnIgual)
@@ -180,13 +166,13 @@ namespace Calculadora
                 {
                     nuevaOperacion = true;
                     Operar(Double.Parse(txtNumeros.Text));
-                    mostrarResultado();
+                    MostrarResultado();
                     hacerOperacion = false;
                 }
                 else
                 {
                     Operar(Double.Parse(operando.ToString()));
-                    mostrarResultado();
+                    MostrarResultado();
                     hacerOperacion = false;
                 }
 
@@ -195,7 +181,7 @@ namespace Calculadora
         }
 
         //Mostrar resultado
-        private void mostrarResultado()
+        private void MostrarResultado()
         {
             if (!primeraOperacion && nuevaOperacion)
             {
