@@ -30,7 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grpBoxEquipo = new System.Windows.Forms.GroupBox();
+            this.radioPortatil = new System.Windows.Forms.RadioButton();
+            this.radioMacintosh = new System.Windows.Forms.RadioButton();
+            this.radioPc = new System.Windows.Forms.RadioButton();
             this.grpBoxOficina = new System.Windows.Forms.GroupBox();
+            this.checkFotoCopiadora = new System.Windows.Forms.CheckBox();
+            this.checkCalculadora = new System.Windows.Forms.CheckBox();
+            this.checkContestador = new System.Windows.Forms.CheckBox();
             this.listBoxPerifericos = new System.Windows.Forms.ListBox();
             this.cmboBoxMetodoPago = new System.Windows.Forms.ComboBox();
             this.lblPerifericos = new System.Windows.Forms.Label();
@@ -38,20 +44,14 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnPresupuesto = new System.Windows.Forms.Button();
             this.btSalir = new System.Windows.Forms.Button();
-            this.radioPc = new System.Windows.Forms.RadioButton();
-            this.radioMacintosh = new System.Windows.Forms.RadioButton();
-            this.radioPortatil = new System.Windows.Forms.RadioButton();
-            this.checkContestador = new System.Windows.Forms.CheckBox();
-            this.checkCalculadora = new System.Windows.Forms.CheckBox();
-            this.checkFotoCopiadora = new System.Windows.Forms.CheckBox();
             this.lblProductos = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureFotoCopiadora = new System.Windows.Forms.PictureBox();
             this.picturePago = new System.Windows.Forms.PictureBox();
             this.pictureCalculadora = new System.Windows.Forms.PictureBox();
             this.picturePeriferico = new System.Windows.Forms.PictureBox();
             this.pictureContestador = new System.Windows.Forms.PictureBox();
             this.pictureEquipo = new System.Windows.Forms.PictureBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpBoxEquipo.SuspendLayout();
             this.grpBoxOficina.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFotoCopiadora)).BeginInit();
@@ -60,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picturePeriferico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureContestador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEquipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxEquipo
@@ -75,6 +76,39 @@
             this.grpBoxEquipo.TabStop = false;
             this.grpBoxEquipo.Text = "Equipo (necesario)";
             // 
+            // radioPortatil
+            // 
+            this.radioPortatil.AutoSize = true;
+            this.radioPortatil.Location = new System.Drawing.Point(16, 172);
+            this.radioPortatil.Name = "radioPortatil";
+            this.radioPortatil.Size = new System.Drawing.Size(174, 29);
+            this.radioPortatil.TabIndex = 2;
+            this.radioPortatil.Text = "Portatil (500$)";
+            this.radioPortatil.UseVisualStyleBackColor = true;
+            this.radioPortatil.CheckedChanged += new System.EventHandler(this.radioPortatil_CheckedChanged);
+            // 
+            // radioMacintosh
+            // 
+            this.radioMacintosh.AutoSize = true;
+            this.radioMacintosh.Location = new System.Drawing.Point(16, 116);
+            this.radioMacintosh.Name = "radioMacintosh";
+            this.radioMacintosh.Size = new System.Drawing.Size(218, 29);
+            this.radioMacintosh.TabIndex = 1;
+            this.radioMacintosh.Text = "Macintosh (1000$)";
+            this.radioMacintosh.UseVisualStyleBackColor = true;
+            this.radioMacintosh.CheckedChanged += new System.EventHandler(this.radioMacintosh_CheckedChanged);
+            // 
+            // radioPc
+            // 
+            this.radioPc.AutoSize = true;
+            this.radioPc.Location = new System.Drawing.Point(16, 61);
+            this.radioPc.Name = "radioPc";
+            this.radioPc.Size = new System.Drawing.Size(137, 29);
+            this.radioPc.TabIndex = 0;
+            this.radioPc.Text = "PC (700$)";
+            this.radioPc.UseVisualStyleBackColor = true;
+            this.radioPc.CheckedChanged += new System.EventHandler(this.radioPc_CheckedChanged);
+            // 
             // grpBoxOficina
             // 
             this.grpBoxOficina.Controls.Add(this.checkFotoCopiadora);
@@ -88,6 +122,39 @@
             this.grpBoxOficina.TabStop = false;
             this.grpBoxOficina.Text = "Equipo de oficina (0-3)";
             // 
+            // checkFotoCopiadora
+            // 
+            this.checkFotoCopiadora.AutoSize = true;
+            this.checkFotoCopiadora.Location = new System.Drawing.Point(16, 172);
+            this.checkFotoCopiadora.Name = "checkFotoCopiadora";
+            this.checkFotoCopiadora.Size = new System.Drawing.Size(246, 29);
+            this.checkFotoCopiadora.TabIndex = 2;
+            this.checkFotoCopiadora.Text = "Fotocopiadora (100$)";
+            this.checkFotoCopiadora.UseVisualStyleBackColor = true;
+            this.checkFotoCopiadora.CheckedChanged += new System.EventHandler(this.checkFotoCopiadora_CheckedChanged);
+            // 
+            // checkCalculadora
+            // 
+            this.checkCalculadora.AutoSize = true;
+            this.checkCalculadora.Location = new System.Drawing.Point(16, 115);
+            this.checkCalculadora.Name = "checkCalculadora";
+            this.checkCalculadora.Size = new System.Drawing.Size(212, 29);
+            this.checkCalculadora.TabIndex = 1;
+            this.checkCalculadora.Text = "Calculadora (20$)";
+            this.checkCalculadora.UseVisualStyleBackColor = true;
+            this.checkCalculadora.CheckedChanged += new System.EventHandler(this.checkCalculadora_CheckedChanged);
+            // 
+            // checkContestador
+            // 
+            this.checkContestador.AutoSize = true;
+            this.checkContestador.Location = new System.Drawing.Point(16, 58);
+            this.checkContestador.Name = "checkContestador";
+            this.checkContestador.Size = new System.Drawing.Size(214, 29);
+            this.checkContestador.TabIndex = 0;
+            this.checkContestador.Text = "Contestador (50$)";
+            this.checkContestador.UseVisualStyleBackColor = true;
+            this.checkContestador.CheckedChanged += new System.EventHandler(this.checkContestador_CheckedChanged);
+            // 
             // listBoxPerifericos
             // 
             this.listBoxPerifericos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,15 +164,18 @@
             this.listBoxPerifericos.Name = "listBoxPerifericos";
             this.listBoxPerifericos.Size = new System.Drawing.Size(291, 154);
             this.listBoxPerifericos.TabIndex = 2;
+            this.listBoxPerifericos.SelectedIndexChanged += new System.EventHandler(this.listBoxPerifericos_SelectedIndexChanged);
             // 
             // cmboBoxMetodoPago
             // 
+            this.cmboBoxMetodoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboBoxMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboBoxMetodoPago.FormattingEnabled = true;
             this.cmboBoxMetodoPago.Location = new System.Drawing.Point(424, 474);
             this.cmboBoxMetodoPago.Name = "cmboBoxMetodoPago";
             this.cmboBoxMetodoPago.Size = new System.Drawing.Size(162, 34);
             this.cmboBoxMetodoPago.TabIndex = 3;
+            this.cmboBoxMetodoPago.SelectedIndexChanged += new System.EventHandler(this.cmboBoxMetodoPago_SelectedIndexChanged);
             // 
             // lblPerifericos
             // 
@@ -147,6 +217,7 @@
             this.btnPresupuesto.TabIndex = 7;
             this.btnPresupuesto.Text = "Presupuesto";
             this.btnPresupuesto.UseVisualStyleBackColor = true;
+            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
             // btSalir
             // 
@@ -157,72 +228,7 @@
             this.btSalir.TabIndex = 8;
             this.btSalir.Text = "Salir";
             this.btSalir.UseVisualStyleBackColor = true;
-            // 
-            // radioPc
-            // 
-            this.radioPc.AutoSize = true;
-            this.radioPc.Location = new System.Drawing.Point(16, 61);
-            this.radioPc.Name = "radioPc";
-            this.radioPc.Size = new System.Drawing.Size(137, 29);
-            this.radioPc.TabIndex = 0;
-            this.radioPc.Text = "PC (700$)";
-            this.radioPc.UseVisualStyleBackColor = true;
-            this.radioPc.CheckedChanged += new System.EventHandler(this.radioPc_CheckedChanged);
-            // 
-            // radioMacintosh
-            // 
-            this.radioMacintosh.AutoSize = true;
-            this.radioMacintosh.Location = new System.Drawing.Point(16, 116);
-            this.radioMacintosh.Name = "radioMacintosh";
-            this.radioMacintosh.Size = new System.Drawing.Size(218, 29);
-            this.radioMacintosh.TabIndex = 1;
-            this.radioMacintosh.Text = "Macintosh (1000$)";
-            this.radioMacintosh.UseVisualStyleBackColor = true;
-            this.radioMacintosh.CheckedChanged += new System.EventHandler(this.radioMacintosh_CheckedChanged);
-            // 
-            // radioPortatil
-            // 
-            this.radioPortatil.AutoSize = true;
-            this.radioPortatil.Location = new System.Drawing.Point(16, 172);
-            this.radioPortatil.Name = "radioPortatil";
-            this.radioPortatil.Size = new System.Drawing.Size(174, 29);
-            this.radioPortatil.TabIndex = 2;
-            this.radioPortatil.Text = "Portatil (500$)";
-            this.radioPortatil.UseVisualStyleBackColor = true;
-            this.radioPortatil.CheckedChanged += new System.EventHandler(this.radioPortatil_CheckedChanged);
-            // 
-            // checkContestador
-            // 
-            this.checkContestador.AutoSize = true;
-            this.checkContestador.Location = new System.Drawing.Point(16, 58);
-            this.checkContestador.Name = "checkContestador";
-            this.checkContestador.Size = new System.Drawing.Size(214, 29);
-            this.checkContestador.TabIndex = 0;
-            this.checkContestador.Text = "Contestador (50$)";
-            this.checkContestador.UseVisualStyleBackColor = true;
-            this.checkContestador.CheckedChanged += new System.EventHandler(this.checkContestador_CheckedChanged);
-            // 
-            // checkCalculadora
-            // 
-            this.checkCalculadora.AutoSize = true;
-            this.checkCalculadora.Location = new System.Drawing.Point(16, 115);
-            this.checkCalculadora.Name = "checkCalculadora";
-            this.checkCalculadora.Size = new System.Drawing.Size(212, 29);
-            this.checkCalculadora.TabIndex = 1;
-            this.checkCalculadora.Text = "Calculadora (20$)";
-            this.checkCalculadora.UseVisualStyleBackColor = true;
-            this.checkCalculadora.CheckedChanged += new System.EventHandler(this.checkCalculadora_CheckedChanged);
-            // 
-            // checkFotoCopiadora
-            // 
-            this.checkFotoCopiadora.AutoSize = true;
-            this.checkFotoCopiadora.Location = new System.Drawing.Point(16, 172);
-            this.checkFotoCopiadora.Name = "checkFotoCopiadora";
-            this.checkFotoCopiadora.Size = new System.Drawing.Size(246, 29);
-            this.checkFotoCopiadora.TabIndex = 2;
-            this.checkFotoCopiadora.Text = "Fotocopiadora (100$)";
-            this.checkFotoCopiadora.UseVisualStyleBackColor = true;
-            this.checkFotoCopiadora.CheckedChanged += new System.EventHandler(this.checkFotoCopiadora_CheckedChanged);
+            this.btSalir.Click += new System.EventHandler(this.btSalir_Click);
             // 
             // lblProductos
             // 
@@ -233,12 +239,6 @@
             this.lblProductos.Size = new System.Drawing.Size(382, 48);
             this.lblProductos.TabIndex = 9;
             this.lblProductos.Text = "Productos pedidos";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // pictureFotoCopiadora
             // 
@@ -294,7 +294,11 @@
             this.pictureEquipo.TabIndex = 10;
             this.pictureEquipo.TabStop = false;
             // 
-            // Form1
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // Tienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -315,8 +319,8 @@
             this.Controls.Add(this.listBoxPerifericos);
             this.Controls.Add(this.grpBoxOficina);
             this.Controls.Add(this.grpBoxEquipo);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Tienda";
+            this.Text = "Tienda";
             this.grpBoxEquipo.ResumeLayout(false);
             this.grpBoxEquipo.PerformLayout();
             this.grpBoxOficina.ResumeLayout(false);
@@ -327,6 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picturePeriferico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureContestador)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEquipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,13 +355,13 @@
         private System.Windows.Forms.CheckBox checkCalculadora;
         private System.Windows.Forms.CheckBox checkContestador;
         private System.Windows.Forms.Label lblProductos;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureEquipo;
         private System.Windows.Forms.PictureBox pictureContestador;
         private System.Windows.Forms.PictureBox picturePeriferico;
         private System.Windows.Forms.PictureBox pictureCalculadora;
         private System.Windows.Forms.PictureBox picturePago;
         private System.Windows.Forms.PictureBox pictureFotoCopiadora;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
 
