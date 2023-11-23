@@ -13,8 +13,9 @@ namespace CompraInteractiva
             {
                 richTextBox.Text += item + "\n";
             }
-            richTextBox.Text += "\n\n\nTotal = " + total + "$";
+            richTextBox.Text += "\n\n\nSubotal = " + (total * 0.79) + "$";
             richTextBox.Text += "\nIVA (21%) = " + (total * 0.21) + "$";
+            richTextBox.Text += "\nTotal = " + total + "$";
             richTextBox.Text += "\n\nMetodo de pago = " + metodoPago;
         }
     }
