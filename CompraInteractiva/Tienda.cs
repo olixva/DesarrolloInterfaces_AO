@@ -6,14 +6,20 @@ using System.Windows.Forms;
 
 namespace CompraInteractiva
 {
-    public partial class Form1 : Form
+    public partial class Tienda : Form
     {
         private static Dictionary<string, Image> imagenes;
 
-        private String[] equiposElegidos = new string[3];
+        private String equipo;
+        private List<String> equiposElegidos = new List<String>();
+        private String periferico;
         private int precioPeriferico;
+        private String metodoPago;
+
+        private List<String> productos = new List<string>();
+
         private int total = 0;
-        public Form1()
+        public Tienda()
         {
             InitializeComponent();
             InicializarControles();
@@ -38,7 +44,6 @@ namespace CompraInteractiva
                 { cmboBoxMetodoPago.Items[1].ToString(), Resources.paypal },
                 { cmboBoxMetodoPago.Items[2].ToString(), Resources.bizum }
             };
-
         }
 
         private void InicializarControles()
@@ -61,6 +66,7 @@ namespace CompraInteractiva
             {
                 pictureEquipo.Image = imagenes[radioPc.Name];
                 total += 700;
+                equipo = radioPc.Text;
             }
             else
             {
@@ -74,6 +80,7 @@ namespace CompraInteractiva
             {
                 pictureEquipo.Image = imagenes[radioMacintosh.Name];
                 total += 1000;
+                equipo = radioMacintosh.Text;
             }
             else
             {
@@ -87,6 +94,7 @@ namespace CompraInteractiva
             {
                 pictureEquipo.Image = imagenes[radioPortatil.Name];
                 total += 500;
+                equipo = radioPortatil.Text;
             }
             else
             {
@@ -100,14 +108,14 @@ namespace CompraInteractiva
             if (checkContestador.Checked)
             {
                 pictureContestador.Image = imagenes[checkContestador.Name];
-                equiposElegidos[0] = checkContestador.Text;
+                equiposElegidos.Add(checkContestador.Text);
                 total += 50;
 
             }
             else
             {
                 pictureContestador.Image = null;
-                equiposElegidos[0] = null;
+                equiposElegidos.Remove(checkContestador.Text);
                 total -= 50;
             }
         }
@@ -117,13 +125,13 @@ namespace CompraInteractiva
             if (checkCalculadora.Checked)
             {
                 pictureCalculadora.Image = imagenes[checkCalculadora.Name];
-                equiposElegidos[1] = checkCalculadora.Text;
+                equiposElegidos.Add(checkCalculadora.Text);
                 total += 20;
             }
             else
             {
                 pictureCalculadora.Image = null;
-                equiposElegidos[1] = null;
+                equiposElegidos.Remove(checkCalculadora.Text);
                 total -= 20;
             }
         }
@@ -133,13 +141,13 @@ namespace CompraInteractiva
             if (checkFotoCopiadora.Checked)
             {
                 pictureFotoCopiadora.Image = imagenes[checkFotoCopiadora.Name];
-                equiposElegidos[2] = checkFotoCopiadora.Text;
+                equiposElegidos.Add(checkFotoCopiadora.Text);
                 total += 100;
             }
             else
             {
                 pictureFotoCopiadora.Image = null;
-                equiposElegidos[2] = null;
+                equiposElegidos.Remove(checkFotoCopiadora.Text);
                 total -= 100;
             }
         }
@@ -152,13 +160,16 @@ namespace CompraInteractiva
                 case 0:
                     picturePeriferico.Image = imagenes[listBoxPerifericos.Items[0].ToString()];
                     precioPeriferico = 75;
+                    periferico = listBoxPerifericos.Items[0].ToString();
                     break;
                 case 1:
                     picturePeriferico.Image = imagenes[listBoxPerifericos.Items[1].ToString()];
+                    periferico = listBoxPerifericos.Items[1].ToString();
                     precioPeriferico = 90;
                     break;
                 case 2:
                     picturePeriferico.Image = imagenes[listBoxPerifericos.Items[2].ToString()];
+                    periferico = listBoxPerifericos.Items[2].ToString();
                     precioPeriferico = 50;
                     break;
             }
@@ -171,12 +182,15 @@ namespace CompraInteractiva
             {
                 case 0:
                     picturePago.Image = imagenes[cmboBoxMetodoPago.Items[0].ToString()];
+                    metodoPago = cmboBoxMetodoPago.Items[0].ToString();
                     break;
                 case 1:
                     picturePago.Image = imagenes[cmboBoxMetodoPago.Items[1].ToString()];
+                    metodoPago = cmboBoxMetodoPago.Items[1].ToString();
                     break;
                 case 2:
                     picturePago.Image = imagenes[cmboBoxMetodoPago.Items[2].ToString()];
+                    metodoPago = cmboBoxMetodoPago.Items[2].ToString();
                     break;
             }
         }
@@ -196,14 +210,31 @@ namespace CompraInteractiva
             }
             else
             {
-                mostrarPresupuesto();
+                recontarProductos();
+                mostrarPresupuesto(productos);
                 errorProvider.SetError(cmboBoxMetodoPago, "");
             }
         }
 
-        private void mostrarPresupuesto()
+        private void recontarProductos()
         {
-            MessageBox.Show((total + precioPeriferico).ToString());
+            productos.Clear();
+
+            //Agregamos todo lo seleccionado
+            productos.Add(equipo);
+
+            foreach (var product in equiposElegidos)
+            {
+                productos.Add(product);
+            }
+            productos.Add(periferico);
+
+        }
+
+        private void mostrarPresupuesto(List<String> productos)
+        {
+            Presupuesto presupuesto = new Presupuesto(productos, metodoPago, (total + precioPeriferico));
+            presupuesto.Show();
         }
     }
 }

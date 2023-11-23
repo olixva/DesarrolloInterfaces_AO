@@ -1,6 +1,6 @@
 ﻿namespace CompraInteractiva
 {
-    partial class Form1
+    partial class Tienda
     {
         /// <summary>
         /// Variable del diseñador necesaria.
