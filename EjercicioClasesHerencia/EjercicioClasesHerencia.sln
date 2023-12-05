@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicioClasesHerencia", "EjercicioClasesHerencia.csproj", "{D98C4DB3-26AA-4219-B778-A5095DF21D24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examen", "..\Examen\Examen.csproj", "{8E60EBC2-9A00-4447-A38D-FFF6FF4F03CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D98C4DB3-26AA-4219-B778-A5095DF21D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D98C4DB3-26AA-4219-B778-A5095DF21D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D98C4DB3-26AA-4219-B778-A5095DF21D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E60EBC2-9A00-4447-A38D-FFF6FF4F03CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E60EBC2-9A00-4447-A38D-FFF6FF4F03CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E60EBC2-9A00-4447-A38D-FFF6FF4F03CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E60EBC2-9A00-4447-A38D-FFF6FF4F03CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
