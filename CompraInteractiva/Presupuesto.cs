@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace CompraInteractiva
@@ -49,6 +50,7 @@ namespace CompraInteractiva
             richTextBox.Text += $"Método de pago: {metodoPago}\n";
         }
 
+        // Metodo para centrar el texto
         private string PadRight(string str, int length)
         {
             return str.PadRight(length - (length - str.Length) / 2);
@@ -57,6 +59,27 @@ namespace CompraInteractiva
         private string PadLeft(string str, int length)
         {
             return str.PadLeft(length - (length - str.Length) / 2);
+        }
+
+        // Botones de guardar y abrir
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.ShowDialog();
+        }
+
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            openFileDialog.ShowDialog();
+        }
+
+        private void saveFileDialog_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            File.WriteAllText(saveFileDialog.FileName, richTextBox.Text);
+        }
+
+        private void openFileDialog_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            richTextBox.Text = File.ReadAllText(openFileDialog.FileName);
         }
     }
 }
