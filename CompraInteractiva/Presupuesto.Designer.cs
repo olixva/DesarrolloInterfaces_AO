@@ -56,7 +56,6 @@
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
             // saveFileDialog
