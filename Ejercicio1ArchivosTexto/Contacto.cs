@@ -48,7 +48,7 @@ namespace Ejercicio1ArchivosTexto
             List<Contacto> contactosInicial = new List<Contacto>();
             foreach (Contacto c in contactos)
             {
-                if (c.nombre[0].Equals(inicial))
+                if (string.Equals(c.nombre[0].ToString(), inicial.ToString(), StringComparison.OrdinalIgnoreCase))
                 {
                     contactosInicial.Add(c);
                 }

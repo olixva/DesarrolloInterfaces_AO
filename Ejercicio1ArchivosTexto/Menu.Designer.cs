@@ -53,13 +53,15 @@
             this.btnAbrir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.grpGuardarInicial = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtBoxGuardarInicial = new System.Windows.Forms.RichTextBox();
+            this.btnAbrirInicial = new System.Windows.Forms.Button();
+            this.btnGuardarInicial = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.saveFileDialogInicial = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogInicial = new System.Windows.Forms.OpenFileDialog();
+            this.txtInicial = new System.Windows.Forms.TextBox();
+            this.lblInicial = new System.Windows.Forms.Label();
+            this.saveFileDialogInicial = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.grpAltas.SuspendLayout();
@@ -70,6 +72,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.202532F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(26, 26);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -79,21 +82,21 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(10, 4, 0, 4);
-            this.menuStrip.Size = new System.Drawing.Size(977, 40);
+            this.menuStrip.Size = new System.Drawing.Size(486, 34);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
             // altasToolStripMenuItem
             // 
             this.altasToolStripMenuItem.Name = "altasToolStripMenuItem";
-            this.altasToolStripMenuItem.Size = new System.Drawing.Size(73, 32);
+            this.altasToolStripMenuItem.Size = new System.Drawing.Size(68, 32);
             this.altasToolStripMenuItem.Text = "&Altas";
             this.altasToolStripMenuItem.Click += new System.EventHandler(this.altasToolStripMenuItem_Click);
             // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(106, 32);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(99, 32);
             this.consultaToolStripMenuItem.Text = "&Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
@@ -103,20 +106,20 @@
             this.guardarAgenndaToolStripMenuItem,
             this.guardarAgendaPorInicialToolStripMenuItem});
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(145, 32);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(135, 32);
             this.guardarToolStripMenuItem.Text = "&Guardar/Leer";
             // 
             // guardarAgenndaToolStripMenuItem
             // 
             this.guardarAgenndaToolStripMenuItem.Name = "guardarAgenndaToolStripMenuItem";
-            this.guardarAgenndaToolStripMenuItem.Size = new System.Drawing.Size(401, 36);
+            this.guardarAgenndaToolStripMenuItem.Size = new System.Drawing.Size(373, 36);
             this.guardarAgenndaToolStripMenuItem.Text = "Guardar/Leer &Agenda";
             this.guardarAgenndaToolStripMenuItem.Click += new System.EventHandler(this.guardarAgendaToolStripMenuItem_Click);
             // 
             // guardarAgendaPorInicialToolStripMenuItem
             // 
             this.guardarAgendaPorInicialToolStripMenuItem.Name = "guardarAgendaPorInicialToolStripMenuItem";
-            this.guardarAgendaPorInicialToolStripMenuItem.Size = new System.Drawing.Size(401, 36);
+            this.guardarAgendaPorInicialToolStripMenuItem.Size = new System.Drawing.Size(373, 36);
             this.guardarAgendaPorInicialToolStripMenuItem.Text = "Guardar/Leer Agenda por &Inicial";
             this.guardarAgendaPorInicialToolStripMenuItem.Click += new System.EventHandler(this.guardarAgendaPorInicialToolStripMenuItem_Click);
             // 
@@ -202,6 +205,7 @@
             this.grpAltas.Controls.Add(this.txtNombre);
             this.grpAltas.Controls.Add(this.lblNombre);
             this.grpAltas.Controls.Add(this.lblID);
+            this.grpAltas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.202532F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAltas.Location = new System.Drawing.Point(37, 55);
             this.grpAltas.Name = "grpAltas";
             this.grpAltas.Size = new System.Drawing.Size(428, 344);
@@ -215,7 +219,8 @@
             this.grpConsulta.Controls.Add(this.btnBuscar);
             this.grpConsulta.Controls.Add(this.txtNombreConsulta);
             this.grpConsulta.Controls.Add(this.lblNombreConsulta);
-            this.grpConsulta.Location = new System.Drawing.Point(520, 55);
+            this.grpConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.202532F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpConsulta.Location = new System.Drawing.Point(31, 55);
             this.grpConsulta.Name = "grpConsulta";
             this.grpConsulta.Size = new System.Drawing.Size(428, 344);
             this.grpConsulta.TabIndex = 9;
@@ -259,9 +264,10 @@
             this.grpGuardar.Controls.Add(this.txtBoxGuardar);
             this.grpGuardar.Controls.Add(this.btnAbrir);
             this.grpGuardar.Controls.Add(this.btnGuardar);
-            this.grpGuardar.Location = new System.Drawing.Point(37, 405);
+            this.grpGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.202532F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpGuardar.Location = new System.Drawing.Point(12, 81);
             this.grpGuardar.Name = "grpGuardar";
-            this.grpGuardar.Size = new System.Drawing.Size(428, 394);
+            this.grpGuardar.Size = new System.Drawing.Size(428, 397);
             this.grpGuardar.TabIndex = 10;
             this.grpGuardar.TabStop = false;
             this.grpGuardar.Text = "Guardar/Leer Agenda";
@@ -301,46 +307,51 @@
             // 
             // grpGuardarInicial
             // 
-            this.grpGuardarInicial.Controls.Add(this.richTextBox1);
-            this.grpGuardarInicial.Controls.Add(this.button1);
-            this.grpGuardarInicial.Controls.Add(this.button2);
-            this.grpGuardarInicial.Location = new System.Drawing.Point(520, 405);
+            this.grpGuardarInicial.Controls.Add(this.lblInicial);
+            this.grpGuardarInicial.Controls.Add(this.txtInicial);
+            this.grpGuardarInicial.Controls.Add(this.txtBoxGuardarInicial);
+            this.grpGuardarInicial.Controls.Add(this.btnAbrirInicial);
+            this.grpGuardarInicial.Controls.Add(this.btnGuardarInicial);
+            this.grpGuardarInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.202532F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpGuardarInicial.Location = new System.Drawing.Point(25, 71);
             this.grpGuardarInicial.Name = "grpGuardarInicial";
-            this.grpGuardarInicial.Size = new System.Drawing.Size(428, 394);
+            this.grpGuardarInicial.Size = new System.Drawing.Size(428, 407);
             this.grpGuardarInicial.TabIndex = 11;
             this.grpGuardarInicial.TabStop = false;
             this.grpGuardarInicial.Text = "Guardar/Leer Agenda por Inicial";
             this.grpGuardarInicial.Visible = false;
             // 
-            // richTextBox1
+            // txtBoxGuardarInicial
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(33, 36);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(370, 266);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.txtBoxGuardarInicial.Location = new System.Drawing.Point(33, 36);
+            this.txtBoxGuardarInicial.Name = "txtBoxGuardarInicial";
+            this.txtBoxGuardarInicial.Size = new System.Drawing.Size(370, 266);
+            this.txtBoxGuardarInicial.TabIndex = 10;
+            this.txtBoxGuardarInicial.Text = "";
             // 
-            // button1
+            // btnAbrirInicial
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(298, 332);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 40);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Abrir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAbrirInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrirInicial.Location = new System.Drawing.Point(298, 332);
+            this.btnAbrirInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAbrirInicial.Name = "btnAbrirInicial";
+            this.btnAbrirInicial.Size = new System.Drawing.Size(105, 40);
+            this.btnAbrirInicial.TabIndex = 9;
+            this.btnAbrirInicial.Text = "Abrir";
+            this.btnAbrirInicial.UseVisualStyleBackColor = true;
+            this.btnAbrirInicial.Click += new System.EventHandler(this.btnAbrirInicial_Click);
             // 
-            // button2
+            // btnGuardarInicial
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(33, 332);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 40);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGuardarInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarInicial.Location = new System.Drawing.Point(33, 332);
+            this.btnGuardarInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGuardarInicial.Name = "btnGuardarInicial";
+            this.btnGuardarInicial.Size = new System.Drawing.Size(105, 40);
+            this.btnGuardarInicial.TabIndex = 8;
+            this.btnGuardarInicial.Text = "Guardar";
+            this.btnGuardarInicial.UseVisualStyleBackColor = true;
+            this.btnGuardarInicial.Click += new System.EventHandler(this.btnGuardarInicial_Click);
             // 
             // openFileDialog
             // 
@@ -350,18 +361,43 @@
             // saveFileDialog
             // 
             this.saveFileDialog.DefaultExt = "txt";
-            this.saveFileDialog.FileName = "agenda";
+            this.saveFileDialog.FileName = "Agenda";
             this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
             // 
             // openFileDialogInicial
             // 
             this.openFileDialogInicial.FileName = "openFileDialog1";
+            this.openFileDialogInicial.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogInicial_FileOk);
+            // 
+            // txtInicial
+            // 
+            this.txtInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInicial.Location = new System.Drawing.Point(182, 362);
+            this.txtInicial.Name = "txtInicial";
+            this.txtInicial.Size = new System.Drawing.Size(63, 37);
+            this.txtInicial.TabIndex = 11;
+            this.txtInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // lblInicial
+            // 
+            this.lblInicial.AutoSize = true;
+            this.lblInicial.Location = new System.Drawing.Point(190, 332);
+            this.lblInicial.Name = "lblInicial";
+            this.lblInicial.Size = new System.Drawing.Size(55, 22);
+            this.lblInicial.TabIndex = 12;
+            this.lblInicial.Text = "Inicial";
+            // 
+            // saveFileDialogInicial
+            // 
+            this.saveFileDialogInicial.DefaultExt = "txt";
+            this.saveFileDialogInicial.FileName = "AgendaPorInicial";
+            this.saveFileDialogInicial.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialogInicial_FileOk);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 806);
+            this.ClientSize = new System.Drawing.Size(486, 505);
             this.Controls.Add(this.grpGuardarInicial);
             this.Controls.Add(this.grpGuardar);
             this.Controls.Add(this.grpConsulta);
@@ -381,6 +417,7 @@
             this.grpConsulta.PerformLayout();
             this.grpGuardar.ResumeLayout(false);
             this.grpGuardarInicial.ResumeLayout(false);
+            this.grpGuardarInicial.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,14 +448,16 @@
         private System.Windows.Forms.Button btnAbrir;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox grpGuardarInicial;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox txtBoxGuardarInicial;
+        private System.Windows.Forms.Button btnAbrirInicial;
+        private System.Windows.Forms.Button btnGuardarInicial;
         private System.Windows.Forms.RichTextBox txtBoxGuardar;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.SaveFileDialog saveFileDialogInicial;
         private System.Windows.Forms.OpenFileDialog openFileDialogInicial;
+        private System.Windows.Forms.Label lblInicial;
+        private System.Windows.Forms.TextBox txtInicial;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogInicial;
     }
 }
 

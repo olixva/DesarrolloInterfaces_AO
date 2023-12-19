@@ -160,5 +160,59 @@ namespace Ejercicio1ArchivosTexto
             grpGuardar.Visible = false;
             grpGuardarInicial.Visible = true;
         }
+
+        //Controlar que solo se introduzca una unica letra
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada es una letra
+            if (char.IsLetter(e.KeyChar))
+            {
+                // Asegura que solo se permita una letra
+                txtInicial.Text = e.KeyChar.ToString();
+                e.Handled = true; // Indica que hemos manejado el evento y no se propaga más
+            }
+            else
+            {
+                // Si no es una letra, se ignora la entrada
+                e.Handled = true;
+            }
+        }
+
+        //Botones guardar/leer
+        private void btnGuardarInicial_Click(object sender, EventArgs e)
+        {
+            if (txtInicial.Text.Length == 0)
+            {
+                MessageBox.Show("Introduce una letra");
+                return;
+            }
+            saveFileDialogInicial.ShowDialog();
+        }
+
+        private void btnAbrirInicial_Click(object sender, EventArgs e)
+        {
+            openFileDialogInicial.ShowDialog();
+        }
+
+        //Guardar
+        private void saveFileDialogInicial_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            StreamWriter sw = new StreamWriter(saveFileDialogInicial.FileName);
+            foreach (Contacto c in Contacto.MostrarContactosInicial(txtInicial.Text[0]))
+            {
+                sw.WriteLine(c.ToString());
+            }
+            sw.Close();
+
+            txtBoxGuardarInicial.Text = File.ReadAllText(saveFileDialogInicial.FileName);
+        }
+
+        //Leer
+        private void openFileDialogInicial_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            txtBoxGuardarInicial.Text = File.ReadAllText(openFileDialogInicial.FileName);
+        }
+
+
     }
 }
