@@ -173,13 +173,9 @@ namespace Ejercicio1ArchivosTexto
             {
                 // Asegura que solo se permita una letra
                 txtInicial.Text = e.KeyChar.ToString();
-                e.Handled = true; // Indica que hemos manejado el evento y no se propaga más
             }
-            else
-            {
-                // Si no es una letra, se ignora la entrada
-                e.Handled = true;
-            }
+            e.Handled = true; // Indica que hemos manejado el evento y no se propaga más
+
         }
 
         //Botones guardar/leer
