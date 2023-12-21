@@ -19,6 +19,7 @@ namespace Ejercicio1ArchivosTexto
             grpConsulta.Visible = false;
             grpGuardar.Visible = false;
             grpGuardarInicial.Visible = false;
+            grpBorrar.Visible = false;
         }
 
         //Limpiar campos altas
@@ -91,6 +92,7 @@ namespace Ejercicio1ArchivosTexto
             grpConsulta.Visible = true;
             grpGuardar.Visible = false;
             grpGuardarInicial.Visible = false;
+            grpBorrar.Visible = false;
         }
 
         //Limpiar campos consultas
@@ -115,6 +117,7 @@ namespace Ejercicio1ArchivosTexto
             grpConsulta.Visible = false;
             grpGuardar.Visible = true;
             grpGuardarInicial.Visible = false;
+            grpBorrar.Visible = false;
 
             MostrarAgenda();
         }
@@ -158,6 +161,7 @@ namespace Ejercicio1ArchivosTexto
             grpAltas.Visible = false;
             grpConsulta.Visible = false;
             grpGuardar.Visible = false;
+            grpBorrar.Visible = false;
             grpGuardarInicial.Visible = true;
         }
 
@@ -203,8 +207,6 @@ namespace Ejercicio1ArchivosTexto
                 sw.WriteLine(c.ToString());
             }
             sw.Close();
-
-            txtBoxGuardarInicial.Text = File.ReadAllText(saveFileDialogInicial.FileName);
         }
 
         //Leer
@@ -213,6 +215,63 @@ namespace Ejercicio1ArchivosTexto
             txtBoxGuardarInicial.Text = File.ReadAllText(openFileDialogInicial.FileName);
         }
 
+        //Mostrar contactos por inicial al escribir
+        private void txtInicial_TextChanged(object sender, EventArgs e)
+        {
+            string texto = "";
+            foreach (Contacto c in Contacto.MostrarContactosInicial(txtInicial.Text[0]))
+            {
+                texto += c.ToString();
+            }
 
+            txtBoxGuardarInicial.Text = texto;
+        }
+
+        //Borrar
+        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grpAltas.Visible = false;
+            grpConsulta.Visible = false;
+            grpGuardar.Visible = false;
+            grpGuardarInicial.Visible = false;
+            grpBorrar.Visible = true;
+
+            txtNombreBorrar.Text = "";
+            cargarContactos();
+        }
+
+        //Mostrar contactos al escribir
+        private void txtNombreBorrar_TextChanged(object sender, EventArgs e)
+        {
+            listBoxBorrar.Items.Clear();
+            foreach (Contacto c in Contacto.MostrarContactosNombre(txtNombreBorrar.Text))
+            {
+                listBoxBorrar.Items.Add(c);
+            }
+        }
+
+        //Metodo que borra los contactos seleccionados y actualiza la lista
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listBoxBorrar.SelectedItems.Count; i++)
+            {
+                Contacto.EliminarContacto((Contacto)listBoxBorrar.SelectedItems[i]);
+            }
+
+            txtNombreBorrar.Text = "";
+            listBoxBorrar.Items.Clear();
+            cargarContactos();
+        }
+
+        //Metodo que carga los contactos en el listbox
+        private void cargarContactos()
+        {
+            listBoxBorrar.Items.Clear();
+
+            foreach (Contacto c in Contacto.contactos)
+            {
+                listBoxBorrar.Items.Add(c);
+            }
+        }
     }
 }

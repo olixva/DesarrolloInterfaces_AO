@@ -28,6 +28,18 @@ namespace Ejercicio1ArchivosTexto
         {
             contactos.Add(this);
         }
+        //Metodo estatico para eliminar un contacto
+        public static void EliminarContacto(Contacto cBorrar)
+        {
+            foreach (Contacto c in contactos)
+            {
+                if (c == cBorrar)
+                {
+                    contactos.Remove(c);
+                    break;
+                }
+            }
+        }
 
         //Metodo estatico para mostrar el telefono de un contacto por su nombre
         public static String MostrarTelefono(String nombre)
@@ -40,6 +52,20 @@ namespace Ejercicio1ArchivosTexto
                 }
             }
             return ("No existe ningun contacto con ese nombre");
+        }
+
+        //Metodo estatico que devuelve todos los contactos que contengan una determinada cadena
+        public static List<Contacto> MostrarContactosNombre(string cadena)
+        {
+            List<Contacto> contactosCadena = new List<Contacto>();
+            foreach (Contacto c in contactos)
+            {
+                if (c.nombre.Contains(cadena))
+                {
+                    contactosCadena.Add(c);
+                }
+            }
+            return contactosCadena;
         }
 
         //Metodo para mostrar todos los contactos con una determinada inicial

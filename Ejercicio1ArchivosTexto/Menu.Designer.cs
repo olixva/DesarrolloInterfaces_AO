@@ -53,21 +53,28 @@
             this.btnAbrir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.grpGuardarInicial = new System.Windows.Forms.GroupBox();
+            this.lblInicial = new System.Windows.Forms.Label();
+            this.txtInicial = new System.Windows.Forms.TextBox();
             this.txtBoxGuardarInicial = new System.Windows.Forms.RichTextBox();
             this.btnAbrirInicial = new System.Windows.Forms.Button();
             this.btnGuardarInicial = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogInicial = new System.Windows.Forms.OpenFileDialog();
-            this.txtInicial = new System.Windows.Forms.TextBox();
-            this.lblInicial = new System.Windows.Forms.Label();
             this.saveFileDialogInicial = new System.Windows.Forms.SaveFileDialog();
+            this.borrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpBorrar = new System.Windows.Forms.GroupBox();
+            this.lblNombreBorrar = new System.Windows.Forms.Label();
+            this.txtNombreBorrar = new System.Windows.Forms.TextBox();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.listBoxBorrar = new System.Windows.Forms.ListBox();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.grpAltas.SuspendLayout();
             this.grpConsulta.SuspendLayout();
             this.grpGuardar.SuspendLayout();
             this.grpGuardarInicial.SuspendLayout();
+            this.grpBorrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -78,11 +85,12 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altasToolStripMenuItem,
             this.consultaToolStripMenuItem,
-            this.guardarToolStripMenuItem});
+            this.guardarToolStripMenuItem,
+            this.borrarToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(10, 4, 0, 4);
-            this.menuStrip.Size = new System.Drawing.Size(486, 34);
+            this.menuStrip.Size = new System.Drawing.Size(478, 34);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -321,6 +329,25 @@
             this.grpGuardarInicial.Text = "Guardar/Leer Agenda por Inicial";
             this.grpGuardarInicial.Visible = false;
             // 
+            // lblInicial
+            // 
+            this.lblInicial.AutoSize = true;
+            this.lblInicial.Location = new System.Drawing.Point(190, 332);
+            this.lblInicial.Name = "lblInicial";
+            this.lblInicial.Size = new System.Drawing.Size(55, 22);
+            this.lblInicial.TabIndex = 12;
+            this.lblInicial.Text = "Inicial";
+            // 
+            // txtInicial
+            // 
+            this.txtInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInicial.Location = new System.Drawing.Point(182, 362);
+            this.txtInicial.Name = "txtInicial";
+            this.txtInicial.Size = new System.Drawing.Size(63, 37);
+            this.txtInicial.TabIndex = 11;
+            this.txtInicial.TextChanged += new System.EventHandler(this.txtInicial_TextChanged);
+            this.txtInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // txtBoxGuardarInicial
             // 
             this.txtBoxGuardarInicial.Location = new System.Drawing.Point(33, 36);
@@ -369,35 +396,80 @@
             this.openFileDialogInicial.FileName = "openFileDialog1";
             this.openFileDialogInicial.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogInicial_FileOk);
             // 
-            // txtInicial
-            // 
-            this.txtInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInicial.Location = new System.Drawing.Point(182, 362);
-            this.txtInicial.Name = "txtInicial";
-            this.txtInicial.Size = new System.Drawing.Size(63, 37);
-            this.txtInicial.TabIndex = 11;
-            this.txtInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
-            // lblInicial
-            // 
-            this.lblInicial.AutoSize = true;
-            this.lblInicial.Location = new System.Drawing.Point(190, 332);
-            this.lblInicial.Name = "lblInicial";
-            this.lblInicial.Size = new System.Drawing.Size(55, 22);
-            this.lblInicial.TabIndex = 12;
-            this.lblInicial.Text = "Inicial";
-            // 
             // saveFileDialogInicial
             // 
             this.saveFileDialogInicial.DefaultExt = "txt";
             this.saveFileDialogInicial.FileName = "AgendaPorInicial";
             this.saveFileDialogInicial.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialogInicial_FileOk);
             // 
+            // borrarToolStripMenuItem
+            // 
+            this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(78, 32);
+            this.borrarToolStripMenuItem.Text = "&Borrar";
+            this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
+            // 
+            // grpBorrar
+            // 
+            this.grpBorrar.Controls.Add(this.listBoxBorrar);
+            this.grpBorrar.Controls.Add(this.lblNombreBorrar);
+            this.grpBorrar.Controls.Add(this.txtNombreBorrar);
+            this.grpBorrar.Controls.Add(this.btnBorrar);
+            this.grpBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.202532F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBorrar.Location = new System.Drawing.Point(12, 65);
+            this.grpBorrar.Name = "grpBorrar";
+            this.grpBorrar.Size = new System.Drawing.Size(428, 407);
+            this.grpBorrar.TabIndex = 13;
+            this.grpBorrar.TabStop = false;
+            this.grpBorrar.Text = "Borrar";
+            this.grpBorrar.Visible = false;
+            // 
+            // lblNombreBorrar
+            // 
+            this.lblNombreBorrar.AutoSize = true;
+            this.lblNombreBorrar.Location = new System.Drawing.Point(40, 342);
+            this.lblNombreBorrar.Name = "lblNombreBorrar";
+            this.lblNombreBorrar.Size = new System.Drawing.Size(55, 22);
+            this.lblNombreBorrar.TabIndex = 12;
+            this.lblNombreBorrar.Text = "Inicial";
+            // 
+            // txtNombreBorrar
+            // 
+            this.txtNombreBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreBorrar.Location = new System.Drawing.Point(128, 335);
+            this.txtNombreBorrar.Name = "txtNombreBorrar";
+            this.txtNombreBorrar.Size = new System.Drawing.Size(140, 37);
+            this.txtNombreBorrar.TabIndex = 11;
+            this.txtNombreBorrar.TextChanged += new System.EventHandler(this.txtNombreBorrar_TextChanged);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(298, 332);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(105, 40);
+            this.btnBorrar.TabIndex = 9;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // listBoxBorrar
+            // 
+            this.listBoxBorrar.FormattingEnabled = true;
+            this.listBoxBorrar.ItemHeight = 22;
+            this.listBoxBorrar.Location = new System.Drawing.Point(44, 46);
+            this.listBoxBorrar.Name = "listBoxBorrar";
+            this.listBoxBorrar.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBoxBorrar.Size = new System.Drawing.Size(359, 268);
+            this.listBoxBorrar.TabIndex = 13;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 505);
+            this.ClientSize = new System.Drawing.Size(478, 488);
+            this.Controls.Add(this.grpBorrar);
             this.Controls.Add(this.grpGuardarInicial);
             this.Controls.Add(this.grpGuardar);
             this.Controls.Add(this.grpConsulta);
@@ -418,6 +490,8 @@
             this.grpGuardar.ResumeLayout(false);
             this.grpGuardarInicial.ResumeLayout(false);
             this.grpGuardarInicial.PerformLayout();
+            this.grpBorrar.ResumeLayout(false);
+            this.grpBorrar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,6 +532,12 @@
         private System.Windows.Forms.Label lblInicial;
         private System.Windows.Forms.TextBox txtInicial;
         private System.Windows.Forms.SaveFileDialog saveFileDialogInicial;
+        private System.Windows.Forms.ToolStripMenuItem borrarToolStripMenuItem;
+        private System.Windows.Forms.GroupBox grpBorrar;
+        private System.Windows.Forms.Label lblNombreBorrar;
+        private System.Windows.Forms.TextBox txtNombreBorrar;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.ListBox listBoxBorrar;
     }
 }
 
