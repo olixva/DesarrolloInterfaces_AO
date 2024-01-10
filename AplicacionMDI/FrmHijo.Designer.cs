@@ -39,6 +39,7 @@
             this.rtbDocumento.Size = new System.Drawing.Size(676, 747);
             this.rtbDocumento.TabIndex = 0;
             this.rtbDocumento.Text = "";
+            this.rtbDocumento.TextChanged += new System.EventHandler(this.rtbDocumento_TextChanged);
             // 
             // FrmHijo
             // 
@@ -48,6 +49,7 @@
             this.Controls.Add(this.rtbDocumento);
             this.Name = "FrmHijo";
             this.Text = "Formulario Hijo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmHijo_FormClosing);
             this.ResumeLayout(false);
 
         }
