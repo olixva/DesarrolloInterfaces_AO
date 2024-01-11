@@ -132,6 +132,21 @@ namespace AplicacionMDI
                     break;
             }
         }
+
+        private void copiarToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            rtbDocumento.Copy();
+        }
+
+        private void cortarToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            rtbDocumento.Cut();
+        }
+
+        private void pegarToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            rtbDocumento.Paste();
+        }
     }
 }
 

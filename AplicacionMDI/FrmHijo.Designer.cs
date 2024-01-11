@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.rtbDocumento = new System.Windows.Forms.RichTextBox();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cortarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pegarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,11 +49,6 @@
             this.rtbDocumento.Text = "";
             this.rtbDocumento.TextChanged += new System.EventHandler(this.rtbDocumento_TextChanged);
             // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.DefaultExt = "txt";
-            this.saveFileDialog.Title = "Guardar Archivo";
-            // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(26, 26);
@@ -62,25 +57,33 @@
             this.cortarToolStripMenuItem,
             this.pegarToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(259, 144);
+            this.contextMenuStrip.Size = new System.Drawing.Size(259, 142);
             // 
             // copiarToolStripMenuItem
             // 
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
             this.copiarToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
             this.copiarToolStripMenuItem.Text = "Copiar";
+            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
             // 
             // cortarToolStripMenuItem
             // 
             this.cortarToolStripMenuItem.Name = "cortarToolStripMenuItem";
             this.cortarToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
             this.cortarToolStripMenuItem.Text = "Cortar";
+            this.cortarToolStripMenuItem.Click += new System.EventHandler(this.cortarToolStripMenuItem_Click);
             // 
             // pegarToolStripMenuItem
             // 
             this.pegarToolStripMenuItem.Name = "pegarToolStripMenuItem";
-            this.pegarToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.pegarToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
             this.pegarToolStripMenuItem.Text = "Pegar";
+            this.pegarToolStripMenuItem.Click += new System.EventHandler(this.pegarToolStripMenuItem_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "txt";
+            this.saveFileDialog.Title = "Guardar Archivo";
             // 
             // FrmHijo
             // 
