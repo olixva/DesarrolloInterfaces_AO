@@ -21,20 +21,20 @@ namespace AplicacionMDI
             cajaTextoActiva = (RichTextBox)hijoActivo?.ActiveControl;
         }
 
-        // Crear un nuevo archivo
+        // Crear un nuevo formulario hijo
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CrearArchivo();
+            CrearFormularioHijo();
             ActualizarHijoActivo();
         }
 
         private void nuevoToolStripButton_Click(object sender, EventArgs e)
         {
-            CrearArchivo();
+            CrearFormularioHijo();
             ActualizarHijoActivo();
         }
 
-        private void CrearArchivo()
+        private void CrearFormularioHijo()
         {
             FrmHijo frmHijo = new FrmHijo();
             frmHijo.MdiParent = this;
@@ -60,29 +60,23 @@ namespace AplicacionMDI
             {
                 FrmHijo frmHijo = new FrmHijo(openFileDialog.SafeFileName);
                 frmHijo.MdiParent = this;
-
                 frmHijo.Show();
                 frmHijo.CargarArchivo(openFileDialog.FileName);
             }
         }
 
-        // Guardar un archivo
+        // Guardar un archivo como
         private void guardarcomoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ActualizarHijoActivo();
-            GuardarArchivo();
+            GuardarArchivoComo();
         }
 
-        private void GuardarArchivo()
+        private void GuardarArchivoComo()
         {
             if (hijoActivo != null)
             {
-                saveFileDialog.FileName = hijoActivo.Text;
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ((FrmHijo)hijoActivo).GuardarArchivo(saveFileDialog.FileName);
-                }
+                ((FrmHijo)hijoActivo).CrearArchivo();
             }
 
         }
@@ -101,13 +95,16 @@ namespace AplicacionMDI
 
         private void GuardarCambios()
         {
-            if (((FrmHijo)hijoActivo).Guardado)
+            if (hijoActivo != null)
             {
-                ((FrmHijo)hijoActivo).GuardarCambios();
-            }
-            else
-            {
-                GuardarArchivo();
+                if (((FrmHijo)hijoActivo).Guardado)
+                {
+                    ((FrmHijo)hijoActivo).GuardarCambios();
+                }
+                else
+                {
+                    GuardarArchivoComo();
+                }
             }
         }
 
@@ -192,32 +189,44 @@ namespace AplicacionMDI
         private void cambiarColorFondoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ActualizarHijoActivo();
-            colorDialog.ShowDialog();
-            cajaTextoActiva.BackColor = colorDialog.Color;
+            if (hijoActivo != null)
+            {
+                colorDialog.ShowDialog();
+                cajaTextoActiva.BackColor = colorDialog.Color;
+            }
         }
 
-        //Cambiar tipo de fuente
+        //Cambiar color del texto
         private void colorTextoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ActualizarHijoActivo();
-            colorDialog.ShowDialog();
-            cajaTextoActiva.ForeColor = colorDialog.Color;
+            if (hijoActivo != null)
+            {
+                colorDialog.ShowDialog();
+                cajaTextoActiva.SelectionColor = colorDialog.Color;
+            }
         }
 
         //Cambiar fondo del texto
         private void fondoTextoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ActualizarHijoActivo();
-            colorDialog.ShowDialog();
-            cajaTextoActiva.SelectionBackColor = colorDialog.Color;
+            if (hijoActivo != null)
+            {
+                colorDialog.ShowDialog();
+                cajaTextoActiva.SelectionBackColor = colorDialog.Color;
+            }
         }
 
         //Cambiar tipo de fuente
         private void formatoTextoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ActualizarHijoActivo();
-            fontDialog.ShowDialog();
-            cajaTextoActiva.SelectionFont = fontDialog.Font;
+            if (hijoActivo != null)
+            {
+                fontDialog.ShowDialog();
+                cajaTextoActiva.SelectionFont = fontDialog.Font;
+            }
         }
 
         //Opciones de ventana
@@ -239,19 +248,12 @@ namespace AplicacionMDI
         //Al cerrar el formulario o salir 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CerrarFormularios();
-        }
-        private void FrmPadre_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            CerrarFormularios();
+            this.Close();
         }
 
-        private void CerrarFormularios()
+        private void acercadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form frm in this.MdiChildren)
-            {
-                ((FrmHijo)frm).CerrarFormulario();
-            }
+            MessageBox.Show("Aplicacion creada por: Antonio Oliva 2 DAM");
         }
     }
 }

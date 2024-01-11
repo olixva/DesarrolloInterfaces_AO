@@ -36,6 +36,7 @@ namespace AplicacionMDI
             cambios = false;
         }
 
+        //Metodo que carga un archivo dada una ruta
         public void CargarArchivo(string ruta)
         {
             this.rtbDocumento.LoadFile(ruta, RichTextBoxStreamType.PlainText);
@@ -43,6 +44,28 @@ namespace AplicacionMDI
             cambios = false;
         }
 
+        //Metodo que pide la ruta del archivo y lo guarda
+        public void CrearArchivo()
+        {
+            saveFileDialog.FileName = this.Text;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.GuardarArchivo(saveFileDialog.FileName);
+            }
+        }
+
+        //Metodo que comprueba si hay cambios en el documento y lo guarda
+        public void GuardarCambios()
+        {
+            if (cambios)
+            {
+                GuardarArchivo(ruta);
+                cambios = false;
+            }
+        }
+
+        //Metodo que crea un nuevo archivo o sobreescribe (Guarda cambios) dada una ruta
         public void GuardarArchivo(string ruta)
         {
             this.rtbDocumento.SaveFile(ruta, RichTextBoxStreamType.PlainText);
@@ -53,47 +76,62 @@ namespace AplicacionMDI
             this.Text = Path.GetFileName(ruta);
         }
 
-        public void GuardarCambios()
-        {
-            if (cambios)
-            {
-                GuardarArchivo(ruta);
-                cambios = false;
-            }
-        }
-
+        //Cuando se modifica el documento cambia el estado de cambios
         private void rtbDocumento_TextChanged(object sender, System.EventArgs e)
         {
             this.cambios = true;
         }
 
-        internal void CerrarFormulario()
+        //Cuando se cierra el formulario llama al metodo CerrarFormulario
+        private void FrmHijo_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (cambios && guardado)
-            {
-                DialogResult result = MessageBox.Show("Desea guardar los cambios?", Path.GetFileName(ruta), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            CerrarFormulario(e);
+        }
 
-                switch (result)
-                {
-                    case DialogResult.Yes:
-                        GuardarCambios();
-                        Application.Exit();
-                        break;
-                    case DialogResult.No:
-                        Application.Exit();
-                        break;
-                }
-            }
-            else
+        //Comprueba si hay cambios y si el documento esta guardado en disco
+        internal void CerrarFormulario(FormClosingEventArgs e)
+        {
+            if (cambios && !guardado)
             {
-                Application.Exit();
+                CerrarFormularioNoGuardado(e);
+            }
+            else if (cambios && guardado)
+            {
+                CerrarFormularioGuardado(e);
             }
         }
 
-        private void FrmHijo_FormClosing(object sender, FormClosingEventArgs e)
+        //Si el coumento no esta guardado en disco pregunta si se quiere guardar en disco
+        private void CerrarFormularioNoGuardado(FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            CerrarFormulario();
+            DialogResult result = MessageBox.Show("Desea guardar el documento?", Path.GetFileName(ruta), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    CrearArchivo();
+                    break;
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+            }
+        }
+
+        //Si el documento esta guardado en disco pregunta si se quieren guardar los cambios
+        private void CerrarFormularioGuardado(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Desea guardar los cambios?", "Done", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    GuardarCambios();
+                    break;
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+            }
         }
     }
 }
+
