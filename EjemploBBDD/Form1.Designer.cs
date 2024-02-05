@@ -41,7 +41,11 @@
             this.btnCargarAnimalesList = new System.Windows.Forms.Button();
             this.listBoxAnimales = new System.Windows.Forms.ListBox();
             this.btnAsignarAnimalZoo = new System.Windows.Forms.Button();
-            this.lblAsignar = new System.Windows.Forms.Label();
+            this.lblAsignarBorrar = new System.Windows.Forms.Label();
+            this.btnBorrarAnimalZoo = new System.Windows.Forms.Button();
+            this.btnActualizarZoo = new System.Windows.Forms.Button();
+            this.llblActualizarZoo = new System.Windows.Forms.Label();
+            this.txtActualizarZoo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +101,7 @@
             // txtBoxInsertarZoo
             // 
             this.txtBoxInsertarZoo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxInsertarZoo.Location = new System.Drawing.Point(733, 525);
+            this.txtBoxInsertarZoo.Location = new System.Drawing.Point(644, 581);
             this.txtBoxInsertarZoo.Name = "txtBoxInsertarZoo";
             this.txtBoxInsertarZoo.Size = new System.Drawing.Size(174, 35);
             this.txtBoxInsertarZoo.TabIndex = 5;
@@ -106,7 +110,7 @@
             // 
             this.lblInsertZoo.AutoSize = true;
             this.lblInsertZoo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInsertZoo.Location = new System.Drawing.Point(727, 453);
+            this.lblInsertZoo.Location = new System.Drawing.Point(638, 509);
             this.lblInsertZoo.Name = "lblInsertZoo";
             this.lblInsertZoo.Size = new System.Drawing.Size(180, 33);
             this.lblInsertZoo.TabIndex = 6;
@@ -114,7 +118,7 @@
             // 
             // btnInsertarZoo
             // 
-            this.btnInsertarZoo.Location = new System.Drawing.Point(766, 593);
+            this.btnInsertarZoo.Location = new System.Drawing.Point(677, 649);
             this.btnInsertarZoo.Name = "btnInsertarZoo";
             this.btnInsertarZoo.Size = new System.Drawing.Size(98, 56);
             this.btnInsertarZoo.TabIndex = 7;
@@ -124,7 +128,7 @@
             // 
             // btnBorrarZoo
             // 
-            this.btnBorrarZoo.Location = new System.Drawing.Point(1131, 529);
+            this.btnBorrarZoo.Location = new System.Drawing.Point(1095, 401);
             this.btnBorrarZoo.Name = "btnBorrarZoo";
             this.btnBorrarZoo.Size = new System.Drawing.Size(98, 56);
             this.btnBorrarZoo.TabIndex = 10;
@@ -136,7 +140,7 @@
             // 
             this.lblBorrarZoo.AutoSize = true;
             this.lblBorrarZoo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBorrarZoo.Location = new System.Drawing.Point(1014, 467);
+            this.lblBorrarZoo.Location = new System.Drawing.Point(982, 343);
             this.lblBorrarZoo.Name = "lblBorrarZoo";
             this.lblBorrarZoo.Size = new System.Drawing.Size(345, 33);
             this.lblBorrarZoo.TabIndex = 9;
@@ -163,7 +167,7 @@
             // 
             // btnAsignarAnimalZoo
             // 
-            this.btnAsignarAnimalZoo.Location = new System.Drawing.Point(265, 578);
+            this.btnAsignarAnimalZoo.Location = new System.Drawing.Point(152, 601);
             this.btnAsignarAnimalZoo.Name = "btnAsignarAnimalZoo";
             this.btnAsignarAnimalZoo.Size = new System.Drawing.Size(121, 71);
             this.btnAsignarAnimalZoo.TabIndex = 13;
@@ -171,22 +175,64 @@
             this.btnAsignarAnimalZoo.UseVisualStyleBackColor = true;
             this.btnAsignarAnimalZoo.Click += new System.EventHandler(this.btnAsignarAnimalZoo_Click);
             // 
-            // lblAsignar
+            // lblAsignarBorrar
             // 
-            this.lblAsignar.AutoSize = true;
-            this.lblAsignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsignar.Location = new System.Drawing.Point(36, 513);
-            this.lblAsignar.Name = "lblAsignar";
-            this.lblAsignar.Size = new System.Drawing.Size(652, 33);
-            this.lblAsignar.TabIndex = 14;
-            this.lblAsignar.Text = "Asignar Animal seleccionado a Zoo seleccionado";
+            this.lblAsignarBorrar.AutoSize = true;
+            this.lblAsignarBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsignarBorrar.Location = new System.Drawing.Point(115, 527);
+            this.lblAsignarBorrar.Name = "lblAsignarBorrar";
+            this.lblAsignarBorrar.Size = new System.Drawing.Size(399, 33);
+            this.lblAsignarBorrar.TabIndex = 14;
+            this.lblAsignarBorrar.Text = "Asignar / Borrar Animal a Zoo";
+            // 
+            // btnBorrarAnimalZoo
+            // 
+            this.btnBorrarAnimalZoo.Location = new System.Drawing.Point(355, 601);
+            this.btnBorrarAnimalZoo.Name = "btnBorrarAnimalZoo";
+            this.btnBorrarAnimalZoo.Size = new System.Drawing.Size(121, 71);
+            this.btnBorrarAnimalZoo.TabIndex = 15;
+            this.btnBorrarAnimalZoo.Text = "BORRAR";
+            this.btnBorrarAnimalZoo.UseVisualStyleBackColor = true;
+            this.btnBorrarAnimalZoo.Click += new System.EventHandler(this.btnBorrarAnimalZoo_Click);
+            // 
+            // btnActualizarZoo
+            // 
+            this.btnActualizarZoo.Location = new System.Drawing.Point(1004, 649);
+            this.btnActualizarZoo.Name = "btnActualizarZoo";
+            this.btnActualizarZoo.Size = new System.Drawing.Size(98, 56);
+            this.btnActualizarZoo.TabIndex = 18;
+            this.btnActualizarZoo.Text = "Actualizar";
+            this.btnActualizarZoo.UseVisualStyleBackColor = true;
+            this.btnActualizarZoo.Click += new System.EventHandler(this.btnActualizarZoo_Click);
+            // 
+            // llblActualizarZoo
+            // 
+            this.llblActualizarZoo.AutoSize = true;
+            this.llblActualizarZoo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblActualizarZoo.Location = new System.Drawing.Point(965, 509);
+            this.llblActualizarZoo.Name = "llblActualizarZoo";
+            this.llblActualizarZoo.Size = new System.Drawing.Size(210, 33);
+            this.llblActualizarZoo.TabIndex = 17;
+            this.llblActualizarZoo.Text = "Actualizar Zoo:";
+            // 
+            // txtActualizarZoo
+            // 
+            this.txtActualizarZoo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActualizarZoo.Location = new System.Drawing.Point(971, 581);
+            this.txtActualizarZoo.Name = "txtActualizarZoo";
+            this.txtActualizarZoo.Size = new System.Drawing.Size(174, 35);
+            this.txtActualizarZoo.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 706);
-            this.Controls.Add(this.lblAsignar);
+            this.ClientSize = new System.Drawing.Size(1382, 763);
+            this.Controls.Add(this.btnActualizarZoo);
+            this.Controls.Add(this.llblActualizarZoo);
+            this.Controls.Add(this.txtActualizarZoo);
+            this.Controls.Add(this.btnBorrarAnimalZoo);
+            this.Controls.Add(this.lblAsignarBorrar);
             this.Controls.Add(this.btnAsignarAnimalZoo);
             this.Controls.Add(this.btnCargarAnimalesList);
             this.Controls.Add(this.listBoxAnimales);
@@ -223,7 +269,11 @@
         private System.Windows.Forms.Button btnCargarAnimalesList;
         private System.Windows.Forms.ListBox listBoxAnimales;
         private System.Windows.Forms.Button btnAsignarAnimalZoo;
-        private System.Windows.Forms.Label lblAsignar;
+        private System.Windows.Forms.Label lblAsignarBorrar;
+        private System.Windows.Forms.Button btnBorrarAnimalZoo;
+        private System.Windows.Forms.Button btnActualizarZoo;
+        private System.Windows.Forms.Label llblActualizarZoo;
+        private System.Windows.Forms.TextBox txtActualizarZoo;
     }
 }
 

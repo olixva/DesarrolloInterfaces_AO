@@ -371,7 +371,102 @@ namespace EjemploBBDD
                 }
                 else
                 {
+                    MessageBox.Show("No se ha asignar el animal");
+                }
+            }
+        }
+
+        //Cargar datos en la tabla de AnimalZoo ejecutando directamente el SqlCommand
+        private int BorrarAnimalZoo(int zooId, int animalId)
+        {
+            try
+            {
+                string query = "DELETE FROM AnimalZoo WHERE ZooId = @ZooId and AnimalId = @AnimalId";
+
+                using (SqlConnection connectionSql = new SqlConnection(connectionString))
+                {
+                    connectionSql.Open();
+                    SqlCommand command = new SqlCommand(query, connectionSql);
+                    command.Parameters.AddWithValue("@ZooId", zooId);
+                    command.Parameters.AddWithValue("@AnimalId", animalId);
+
+                    return command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Ha ocurrido un error SQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error general: " + ex.Message);
+            }
+            return 0;
+        }
+
+        private void btnBorrarAnimalZoo_Click(object sender, EventArgs e)
+        {
+
+            if (listBoxZoos.SelectedIndex == -1 || listBoxAnimalesZoo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un Animal y un Zoo");
+            }
+            else
+            {
+                if (BorrarAnimalZoo((int)listBoxZoos.SelectedValue, (int)listBoxAnimalesZoo.SelectedValue) != 0)
+                {
+                    CargarAnimalesPorZooListBox();
+                }
+                else
+                {
                     MessageBox.Show("No se ha podido borrar el zoo");
+                }
+            }
+        }
+
+        // Actualizar ubicacion de un zoo ejecutando directamente el SqlCommand
+        private int ActualizarZoo(int id, string ubicacion)
+        {
+            try
+            {
+                string query = "UPDATE Zoo SET Ubicacion = @Ubicacion WHERE Id = @ZooId";
+
+                using (SqlConnection connectionSql = new SqlConnection(connectionString))
+                {
+                    connectionSql.Open();
+                    SqlCommand command = new SqlCommand(query, connectionSql);
+                    command.Parameters.AddWithValue("@Ubicacion", ubicacion);
+                    command.Parameters.AddWithValue("@ZooId", id);
+
+                    return command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Ha ocurrido un error SQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error general: " + ex.Message);
+            }
+            return 0;
+        }
+
+        private void btnActualizarZoo_Click(object sender, EventArgs e)
+        {
+            if (listBoxZoos.SelectedIndex == -1 || txtActualizarZoo.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un Zoo y su nueva ubicacion");
+            }
+            else
+            {
+                if (ActualizarZoo((int)listBoxZoos.SelectedValue, txtActualizarZoo.Text) != 0)
+                {
+                    CargarDatosZooListBox();
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido actualizara el zoo");
                 }
             }
         }
