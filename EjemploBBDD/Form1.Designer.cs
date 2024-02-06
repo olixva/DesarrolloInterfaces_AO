@@ -199,7 +199,7 @@
             // 
             this.btnActualizarZoo.Location = new System.Drawing.Point(1004, 649);
             this.btnActualizarZoo.Name = "btnActualizarZoo";
-            this.btnActualizarZoo.Size = new System.Drawing.Size(98, 56);
+            this.btnActualizarZoo.Size = new System.Drawing.Size(109, 56);
             this.btnActualizarZoo.TabIndex = 18;
             this.btnActualizarZoo.Text = "Actualizar";
             this.btnActualizarZoo.UseVisualStyleBackColor = true;
