@@ -115,6 +115,11 @@ namespace BBDDDisenador
             return 0;
         }
 
-
+        private void dvgAnimales_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Validate();
+            this.animalBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.zooBDDataSet);
+        }
     }
 }

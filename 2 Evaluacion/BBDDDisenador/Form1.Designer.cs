@@ -32,10 +32,6 @@
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label ubicacionLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.zooBDDataSet = new BBDDDisenador.ZooBDDataSet();
-            this.zooBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zooTableAdapter = new BBDDDisenador.ZooBDDataSetTableAdapters.ZooTableAdapter();
-            this.tableAdapterManager = new BBDDDisenador.ZooBDDataSetTableAdapters.TableAdapterManager();
             this.zooBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -51,24 +47,28 @@
             this.zooBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.ubicacionTextBox = new System.Windows.Forms.TextBox();
-            this.animalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.animalTableAdapter = new BBDDDisenador.ZooBDDataSetTableAdapters.AnimalTableAdapter();
             this.dvgAnimales = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAnimalesZoo = new System.Windows.Forms.DataGridView();
             this.lblZoos = new System.Windows.Forms.Label();
             this.labelAnimales = new System.Windows.Forms.Label();
             this.btnAsignarAnimal = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.animalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zooBDDataSet = new BBDDDisenador.ZooBDDataSet();
+            this.zooBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zooTableAdapter = new BBDDDisenador.ZooBDDataSetTableAdapters.ZooTableAdapter();
+            this.tableAdapterManager = new BBDDDisenador.ZooBDDataSetTableAdapters.TableAdapterManager();
+            this.animalTableAdapter = new BBDDDisenador.ZooBDDataSetTableAdapters.AnimalTableAdapter();
             idLabel = new System.Windows.Forms.Label();
             ubicacionLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.zooBDDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zooBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zooBindingNavigator)).BeginInit();
             this.zooBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAnimales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimalesZoo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zooBDDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zooBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // idLabel
@@ -88,28 +88,6 @@
             ubicacionLabel.Size = new System.Drawing.Size(94, 22);
             ubicacionLabel.TabIndex = 3;
             ubicacionLabel.Text = "Ubicacion:";
-            // 
-            // zooBDDataSet
-            // 
-            this.zooBDDataSet.DataSetName = "ZooBDDataSet";
-            this.zooBDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // zooBindingSource
-            // 
-            this.zooBindingSource.DataMember = "Zoo";
-            this.zooBindingSource.DataSource = this.zooBDDataSet;
-            // 
-            // zooTableAdapter
-            // 
-            this.zooTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AnimalTableAdapter = null;
-            this.tableAdapterManager.AnimalZooTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = BBDDDisenador.ZooBDDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.ZooTableAdapter = this.zooTableAdapter;
             // 
             // zooBindingNavigator
             // 
@@ -138,7 +116,7 @@
             this.zooBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.zooBindingNavigator.Name = "zooBindingNavigator";
             this.zooBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.zooBindingNavigator.Size = new System.Drawing.Size(963, 35);
+            this.zooBindingNavigator.Size = new System.Drawing.Size(1066, 35);
             this.zooBindingNavigator.TabIndex = 0;
             this.zooBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -254,15 +232,6 @@
             this.ubicacionTextBox.Size = new System.Drawing.Size(126, 28);
             this.ubicacionTextBox.TabIndex = 4;
             // 
-            // animalBindingSource
-            // 
-            this.animalBindingSource.DataMember = "Animal";
-            this.animalBindingSource.DataSource = this.zooBDDataSet;
-            // 
-            // animalTableAdapter
-            // 
-            this.animalTableAdapter.ClearBeforeFill = true;
-            // 
             // dvgAnimales
             // 
             this.dvgAnimales.AutoGenerateColumns = false;
@@ -271,30 +240,14 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.dvgAnimales.DataSource = this.animalBindingSource;
-            this.dvgAnimales.Location = new System.Drawing.Point(448, 89);
+            this.dvgAnimales.Location = new System.Drawing.Point(511, 88);
             this.dvgAnimales.MultiSelect = false;
             this.dvgAnimales.Name = "dvgAnimales";
             this.dvgAnimales.RowHeadersWidth = 67;
             this.dvgAnimales.RowTemplate.Height = 30;
-            this.dvgAnimales.Size = new System.Drawing.Size(503, 220);
+            this.dvgAnimales.Size = new System.Drawing.Size(515, 308);
             this.dvgAnimales.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 165;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nombre";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 165;
+            this.dvgAnimales.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgAnimales_CellEndEdit);
             // 
             // dgvAnimalesZoo
             // 
@@ -320,7 +273,7 @@
             // labelAnimales
             // 
             this.labelAnimales.AutoSize = true;
-            this.labelAnimales.Location = new System.Drawing.Point(639, 45);
+            this.labelAnimales.Location = new System.Drawing.Point(714, 35);
             this.labelAnimales.Name = "labelAnimales";
             this.labelAnimales.Size = new System.Drawing.Size(83, 22);
             this.labelAnimales.TabIndex = 8;
@@ -328,7 +281,7 @@
             // 
             // btnAsignarAnimal
             // 
-            this.btnAsignarAnimal.Location = new System.Drawing.Point(607, 334);
+            this.btnAsignarAnimal.Location = new System.Drawing.Point(616, 420);
             this.btnAsignarAnimal.Name = "btnAsignarAnimal";
             this.btnAsignarAnimal.Size = new System.Drawing.Size(208, 70);
             this.btnAsignarAnimal.TabIndex = 9;
@@ -336,11 +289,59 @@
             this.btnAsignarAnimal.UseVisualStyleBackColor = true;
             this.btnAsignarAnimal.Click += new System.EventHandler(this.btnAsignarAnimal_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 165;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nombre";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 165;
+            // 
+            // animalBindingSource
+            // 
+            this.animalBindingSource.DataMember = "Animal";
+            this.animalBindingSource.DataSource = this.zooBDDataSet;
+            // 
+            // zooBDDataSet
+            // 
+            this.zooBDDataSet.DataSetName = "ZooBDDataSet";
+            this.zooBDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // zooBindingSource
+            // 
+            this.zooBindingSource.DataMember = "Zoo";
+            this.zooBindingSource.DataSource = this.zooBDDataSet;
+            // 
+            // zooTableAdapter
+            // 
+            this.zooTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AnimalTableAdapter = null;
+            this.tableAdapterManager.AnimalZooTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.UpdateOrder = BBDDDisenador.ZooBDDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.ZooTableAdapter = this.zooTableAdapter;
+            // 
+            // animalTableAdapter
+            // 
+            this.animalTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 636);
+            this.ClientSize = new System.Drawing.Size(1066, 636);
             this.Controls.Add(this.btnAsignarAnimal);
             this.Controls.Add(this.labelAnimales);
             this.Controls.Add(this.lblZoos);
@@ -354,14 +355,14 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.zooBDDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zooBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zooBindingNavigator)).EndInit();
             this.zooBindingNavigator.ResumeLayout(false);
             this.zooBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAnimales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimalesZoo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zooBDDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zooBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
