@@ -42,6 +42,7 @@
             this.btnGoAdd.TabIndex = 0;
             this.btnGoAdd.Text = "Agregar una cuenta";
             this.btnGoAdd.UseVisualStyleBackColor = true;
+            this.btnGoAdd.Click += new System.EventHandler(this.btnGoAdd_Click);
             // 
             // btnGoToFillOrCancell
             // 
@@ -51,6 +52,7 @@
             this.btnGoToFillOrCancell.TabIndex = 1;
             this.btnGoToFillOrCancell.Text = "Rellenar o cancelar un pedido";
             this.btnGoToFillOrCancell.UseVisualStyleBackColor = true;
+            this.btnGoToFillOrCancell.Click += new System.EventHandler(this.btnGoToFillOrCancell_Click);
             // 
             // btnExit
             // 
@@ -60,6 +62,7 @@
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Salir";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnGoToAdd
             // 

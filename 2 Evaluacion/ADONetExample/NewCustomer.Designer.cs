@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.grpBoxCuenta = new System.Windows.Forms.GroupBox();
-            this.lblCustomerName = new System.Windows.Forms.Label();
-            this.lblCustomerID = new System.Windows.Forms.Label();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.lblCustomerID = new System.Windows.Forms.Label();
+            this.lblCustomerName = new System.Windows.Forms.Label();
             this.grpbCrearPedido = new System.Windows.Forms.GroupBox();
+            this.dtpOrderDate = new System.Windows.Forms.DateTimePicker();
+            this.numOrderAmount = new System.Windows.Forms.NumericUpDown();
             this.lblFechaPedido = new System.Windows.Forms.Label();
             this.llblCantidadPedido = new System.Windows.Forms.Label();
-            this.numOrderAmount = new System.Windows.Forms.NumericUpDown();
-            this.dtpOrderDate = new System.Windows.Forms.DateTimePicker();
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.btnAddAnotherAccount = new System.Windows.Forms.Button();
@@ -60,14 +60,20 @@
             this.grpBoxCuenta.TabStop = false;
             this.grpBoxCuenta.Text = "Agregar cuenta";
             // 
-            // lblCustomerName
+            // txtCustomerID
             // 
-            this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Location = new System.Drawing.Point(16, 48);
-            this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(164, 22);
-            this.lblCustomerName.TabIndex = 0;
-            this.lblCustomerName.Text = "Nombre del cliente:";
+            this.txtCustomerID.Location = new System.Drawing.Point(241, 95);
+            this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.ReadOnly = true;
+            this.txtCustomerID.Size = new System.Drawing.Size(179, 28);
+            this.txtCustomerID.TabIndex = 3;
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Location = new System.Drawing.Point(206, 48);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(214, 28);
+            this.txtCustomerName.TabIndex = 2;
             // 
             // lblCustomerID
             // 
@@ -78,20 +84,14 @@
             this.lblCustomerID.TabIndex = 1;
             this.lblCustomerID.Text = "Identificador de cliente:";
             // 
-            // txtCustomerName
+            // lblCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(206, 48);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(214, 28);
-            this.txtCustomerName.TabIndex = 2;
-            // 
-            // txtCustomerID
-            // 
-            this.txtCustomerID.Location = new System.Drawing.Point(241, 95);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.ReadOnly = true;
-            this.txtCustomerID.Size = new System.Drawing.Size(179, 28);
-            this.txtCustomerID.TabIndex = 3;
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Location = new System.Drawing.Point(16, 48);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(164, 22);
+            this.lblCustomerName.TabIndex = 0;
+            this.lblCustomerName.Text = "Nombre del cliente:";
             // 
             // grpbCrearPedido
             // 
@@ -105,6 +105,25 @@
             this.grpbCrearPedido.TabIndex = 4;
             this.grpbCrearPedido.TabStop = false;
             this.grpbCrearPedido.Text = "Agregar cuenta";
+            // 
+            // dtpOrderDate
+            // 
+            this.dtpOrderDate.Location = new System.Drawing.Point(206, 95);
+            this.dtpOrderDate.Name = "dtpOrderDate";
+            this.dtpOrderDate.Size = new System.Drawing.Size(200, 28);
+            this.dtpOrderDate.TabIndex = 3;
+            // 
+            // numOrderAmount
+            // 
+            this.numOrderAmount.Location = new System.Drawing.Point(218, 41);
+            this.numOrderAmount.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.numOrderAmount.Name = "numOrderAmount";
+            this.numOrderAmount.Size = new System.Drawing.Size(182, 28);
+            this.numOrderAmount.TabIndex = 2;
             // 
             // lblFechaPedido
             // 
@@ -124,25 +143,6 @@
             this.llblCantidadPedido.TabIndex = 0;
             this.llblCantidadPedido.Text = "Cantidad de pedido: ";
             // 
-            // numOrderAmount
-            // 
-            this.numOrderAmount.Location = new System.Drawing.Point(218, 41);
-            this.numOrderAmount.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.numOrderAmount.Name = "numOrderAmount";
-            this.numOrderAmount.Size = new System.Drawing.Size(182, 28);
-            this.numOrderAmount.TabIndex = 2;
-            // 
-            // dtpOrderDate
-            // 
-            this.dtpOrderDate.Location = new System.Drawing.Point(206, 95);
-            this.dtpOrderDate.Name = "dtpOrderDate";
-            this.dtpOrderDate.Size = new System.Drawing.Size(200, 28);
-            this.dtpOrderDate.TabIndex = 3;
-            // 
             // btnCreateAccount
             // 
             this.btnCreateAccount.Location = new System.Drawing.Point(564, 115);
@@ -151,6 +151,7 @@
             this.btnCreateAccount.TabIndex = 5;
             this.btnCreateAccount.Text = "Crear cuenta";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // btnPlaceOrder
             // 
@@ -160,6 +161,7 @@
             this.btnPlaceOrder.TabIndex = 6;
             this.btnPlaceOrder.Text = "Realizar pedido";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
+            this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
             // 
             // btnAddAnotherAccount
             // 
@@ -169,6 +171,7 @@
             this.btnAddAnotherAccount.TabIndex = 7;
             this.btnAddAnotherAccount.Text = "Agregar otra cuenta";
             this.btnAddAnotherAccount.UseVisualStyleBackColor = true;
+            this.btnAddAnotherAccount.Click += new System.EventHandler(this.btnAddAnotherAccount_Click);
             // 
             // btnAddFinish
             // 
@@ -178,6 +181,7 @@
             this.btnAddFinish.TabIndex = 8;
             this.btnAddFinish.Text = "Finalizar";
             this.btnAddFinish.UseVisualStyleBackColor = true;
+            this.btnAddFinish.Click += new System.EventHandler(this.btnAddFinish_Click);
             // 
             // NewCustomer
             // 

@@ -74,7 +74,7 @@
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(88, 205);
+            idLabel.Location = new System.Drawing.Point(106, 191);
             idLabel.Name = "idLabel";
             idLabel.Size = new System.Drawing.Size(29, 22);
             idLabel.TabIndex = 1;
@@ -83,7 +83,7 @@
             // ubicacionLabel
             // 
             ubicacionLabel.AutoSize = true;
-            ubicacionLabel.Location = new System.Drawing.Point(88, 239);
+            ubicacionLabel.Location = new System.Drawing.Point(106, 225);
             ubicacionLabel.Name = "ubicacionLabel";
             ubicacionLabel.Size = new System.Drawing.Size(94, 22);
             ubicacionLabel.TabIndex = 3;
@@ -241,7 +241,7 @@
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zooBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(188, 202);
+            this.idTextBox.Location = new System.Drawing.Point(206, 188);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(126, 28);
             this.idTextBox.TabIndex = 2;
@@ -249,7 +249,7 @@
             // ubicacionTextBox
             // 
             this.ubicacionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zooBindingSource, "Ubicacion", true));
-            this.ubicacionTextBox.Location = new System.Drawing.Point(188, 236);
+            this.ubicacionTextBox.Location = new System.Drawing.Point(206, 222);
             this.ubicacionTextBox.Name = "ubicacionTextBox";
             this.ubicacionTextBox.Size = new System.Drawing.Size(126, 28);
             this.ubicacionTextBox.TabIndex = 4;
@@ -271,7 +271,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.dvgAnimales.DataSource = this.animalBindingSource;
-            this.dvgAnimales.Location = new System.Drawing.Point(435, 85);
+            this.dvgAnimales.Location = new System.Drawing.Point(448, 89);
             this.dvgAnimales.MultiSelect = false;
             this.dvgAnimales.Name = "dvgAnimales";
             this.dvgAnimales.RowHeadersWidth = 67;
@@ -301,7 +301,7 @@
             this.dgvAnimalesZoo.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dgvAnimalesZoo.AllowDrop = true;
             this.dgvAnimalesZoo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnimalesZoo.Location = new System.Drawing.Point(24, 334);
+            this.dgvAnimalesZoo.Location = new System.Drawing.Point(12, 334);
             this.dgvAnimalesZoo.Name = "dgvAnimalesZoo";
             this.dgvAnimalesZoo.RowHeadersWidth = 67;
             this.dgvAnimalesZoo.RowTemplate.Height = 30;
@@ -311,7 +311,7 @@
             // lblZoos
             // 
             this.lblZoos.AutoSize = true;
-            this.lblZoos.Location = new System.Drawing.Point(166, 135);
+            this.lblZoos.Location = new System.Drawing.Point(184, 121);
             this.lblZoos.Name = "lblZoos";
             this.lblZoos.Size = new System.Drawing.Size(55, 22);
             this.lblZoos.TabIndex = 7;
@@ -320,7 +320,7 @@
             // labelAnimales
             // 
             this.labelAnimales.AutoSize = true;
-            this.labelAnimales.Location = new System.Drawing.Point(622, 47);
+            this.labelAnimales.Location = new System.Drawing.Point(639, 45);
             this.labelAnimales.Name = "labelAnimales";
             this.labelAnimales.Size = new System.Drawing.Size(83, 22);
             this.labelAnimales.TabIndex = 8;
@@ -328,7 +328,7 @@
             // 
             // btnAsignarAnimal
             // 
-            this.btnAsignarAnimal.Location = new System.Drawing.Point(613, 466);
+            this.btnAsignarAnimal.Location = new System.Drawing.Point(607, 334);
             this.btnAsignarAnimal.Name = "btnAsignarAnimal";
             this.btnAsignarAnimal.Size = new System.Drawing.Size(208, 70);
             this.btnAsignarAnimal.TabIndex = 9;
