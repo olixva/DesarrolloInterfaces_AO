@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CAFA7E7E-F0F4-4E7E-A5F4-F621ED4890F3}</ProjectGuid>
+    <ProjectGuid>{F3E7F816-AE0B-48E3-93CA-25BAC84AE95B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BBDDDisenador</RootNamespace>
-    <AssemblyName>BBDDDisenador</AssemblyName>
+    <RootNamespace>EjemploDisenador</RootNamespace>
+    <AssemblyName>EjemploDisenador</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,9 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -75,7 +73,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZooBDDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -100,17 +97,14 @@
     </Compile>
     <None Include="ZooBDDataSet.xsc">
       <DependentUpon>ZooBDDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="ZooBDDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ZooBDDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="ZooBDDataSet.xss">
       <DependentUpon>ZooBDDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -121,8 +115,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ZooBD_log.ldf">
-      <DependentUpon>ZooBD.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>ZooBD.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

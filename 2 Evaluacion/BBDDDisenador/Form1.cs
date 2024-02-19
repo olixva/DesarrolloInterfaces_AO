@@ -58,8 +58,6 @@ namespace BBDDDisenador
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
-
-
                         // Asigna la tabla al DataGridView si hay datos
 
                         dgvAnimalesZoo.DataSource = dataTable;
